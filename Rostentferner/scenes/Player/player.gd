@@ -7,13 +7,11 @@ const UP_VECTOR = Vector2(0,-1)
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var MAX_JUMP_TIMER = 11
-@export var MAX_COYOTE_TIMER = 3
-@export var ACCELERATION = 20
+@export var MAX_COYOTE_TIMER = 2
+@export var ACCELERATION = 30
 @export var DECELERATION = 100
 @export var TERMINAL_SPEED = 500
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var GRAVITY = 1000
 @onready var sprite = $AnimatedSprite2D
 var movement = Vector2()
 
