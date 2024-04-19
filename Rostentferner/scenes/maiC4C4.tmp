@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://b12b22oq0xqj0"]
+
+[ext_resource type="Script" path="res://scenes/mainmenu.gd" id="1_3k5hs"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_3k5hs")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 48.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gametitle" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Game Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="startbutton" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Start"
+horizontal_alignment = 1
+
+[node name="optionen" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Optionen"
+horizontal_alignment = 1
+
+[node name="exit" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Exit"
+horizontal_alignment = 1
