@@ -28,14 +28,26 @@ vertical_alignment = 1
 
 [node name="start" type="Button" parent="GridContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../exit")
+focus_neighbor_bottom = NodePath("../options")
+focus_next = NodePath("../options")
+focus_previous = NodePath("../exit")
 text = "Start"
 
 [node name="options" type="Button" parent="GridContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../start")
+focus_neighbor_bottom = NodePath("../exit")
+focus_next = NodePath("../exit")
+focus_previous = NodePath("../start")
 text = "Optionen"
 
 [node name="exit" type="Button" parent="GridContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../options")
+focus_neighbor_bottom = NodePath("../start")
+focus_next = NodePath("../start")
+focus_previous = NodePath("../options")
 text = "Exit"
 
 [connection signal="pressed" from="GridContainer/start" to="." method="_on_start_pressed"]
