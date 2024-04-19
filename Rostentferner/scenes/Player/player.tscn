@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cg1uasgjkiile"]
+
+[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_2723d"]
+[ext_resource type="Texture2D" uid="uid://c04y7h854hf0k" path="res://assets/cutielinks_1.png" id="2_bpacy"]
+[ext_resource type="Script" path="res://scenes/Player/StateHandler.gd" id="3_30vb3"]
+[ext_resource type="Script" path="res://scenes/Player/normal.gd" id="4_b74j0"]
+[ext_resource type="Script" path="res://scenes/Player/air.gd" id="5_ru84c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dds"]
+size = Vector2(31, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnb03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bpacy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_2723d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_l1dds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_mnb03")
+
+[node name="StateHandler" type="Node" parent="."]
+script = ExtResource("3_30vb3")
+
+[node name="normal" type="Node" parent="StateHandler"]
+script = ExtResource("4_b74j0")
+
+[node name="air" type="Node" parent="StateHandler"]
+script = ExtResource("5_ru84c")
+
+[node name="wall" type="Node" parent="StateHandler"]
