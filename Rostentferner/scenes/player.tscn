@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c04y7h854hf0k" path="res://assets/cutielinks_1.png" id="2_bpacy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dds"]
-size = Vector2(8, 12)
+size = Vector2(31, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mnb03"]
 animations = [{
@@ -21,8 +21,10 @@ animations = [{
 script = ExtResource("1_2723d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_l1dds")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_mnb03")
