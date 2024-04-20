@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
 [ext_resource type="Texture2D" uid="uid://6tmopliga04t" path="res://assets/Backgroundtile.png" id="3_ggblp"]
-[ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
+[ext_resource type="PackedScene" uid="uid://cipcqcmxjoh6b" path="res://scenes/laser.tscn" id="3_mt6td"]
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
-[ext_resource type="PackedScene" uid="uid://cuhb6gxtc0o30" path="res://scenes/button.tscn" id="5_wq3r6"]
-[ext_resource type="PackedScene" uid="uid://dgx0l7acvitqg" path="res://scenes/activated_door.tscn" id="6_xne04"]
+[ext_resource type="PackedScene" uid="uid://uirj7rkwubfv" path="res://scenes/button.tscn" id="5_wq3r6"]
+[ext_resource type="PackedScene" uid="uid://c8yqt4wwr7bpe" path="res://scenes/activated_door.tscn" id="6_xne04"]
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="8_gbf2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
