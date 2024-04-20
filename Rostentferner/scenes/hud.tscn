@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctqhp3ikx03iw"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqhp3ikx03iw"]
 
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_0r8on"]
+[ext_resource type="Script" path="res://scenes/Hearts.gd" id="1_yxclj"]
+[ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_0k84o"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ljvye"]
 
@@ -17,12 +19,25 @@ shader_parameter/noise = SubResource("NoiseTexture2D_poh86")
 [node name="Hearts" type="HBoxContainer" parent="."]
 offset_right = 168.0
 offset_bottom = 40.0
+script = ExtResource("1_yxclj")
 
 [node name="Heart1" type="Sprite2D" parent="Hearts"]
+position = Vector2(24, 16)
+texture = ExtResource("2_0k84o")
+region_enabled = true
+region_rect = Rect2(326.661, 2.41501, 18.8647, 17.9665)
 
 [node name="Heart2" type="Sprite2D" parent="Hearts"]
+position = Vector2(64, 16)
+texture = ExtResource("2_0k84o")
+region_enabled = true
+region_rect = Rect2(326.607, 2.41345, 18.7365, 17.8381)
 
 [node name="Heart3" type="Sprite2D" parent="Hearts"]
+position = Vector2(104, 16)
+texture = ExtResource("2_0k84o")
+region_enabled = true
+region_rect = Rect2(326.897, 2.68551, 18.3515, 17.4531)
 
 [node name="RunCounter" type="HBoxContainer" parent="."]
 anchors_preset = 1
