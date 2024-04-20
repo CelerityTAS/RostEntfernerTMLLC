@@ -11,6 +11,7 @@ const UP_VECTOR = Vector2(0,-1)
 @export var DRAG = 0.9
 @export var GRAVITY = 1000
 @onready var sprite = $AnimatedSprite2D
+var isAlive = true
 var jump_available = false
 var movement = Vector2()
 
@@ -40,14 +41,12 @@ func _physics_process(delta):
 	movement = velocity
 
 func die():
-	if (get_parent().get_node("Finish").has_method("adddeath")):
-		if (get_parent().get_node("Finish").adddeath()):
-			get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
-		else:
-			get_parent().get_node("Control").paused=true
-			get_parent().get_node("Laser").reset(false)
-			reset()
-	else: get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
+	if (get_parent().get_node("Finish").adddeath()):
+		get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
+	else:
+		get_parent().get_node("Control").paused=true
+		get_parent().get_node("Laser").reset(false)
+		reset()
 
 func direction_input():
 	var direction_temp = 0
@@ -61,6 +60,7 @@ func direction_input():
 func reset():
 	movement = Vector2(0,0)
 	position = Vector2(-562,197)
+	isAlive = true
 
 
 func _on_coyote_timer_timeout():

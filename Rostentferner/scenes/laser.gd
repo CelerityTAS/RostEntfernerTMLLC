@@ -22,13 +22,15 @@ func reset(hasFinished):
 	position.x = -598
 	nextMove = 0
 	step = -1
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x += nextMove*4*delta
 	
 	
 	for body in get_overlapping_bodies():
-		if body.has_method("die"):
+		if body.has_method("die") and body.isAlive:
+			body.isAlive = false
 			body.die()
 
 

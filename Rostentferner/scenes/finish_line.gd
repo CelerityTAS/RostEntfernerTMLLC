@@ -15,10 +15,13 @@ func resetdeaths():
 	$"../HUD/ColorRect".material.set_shader_parameter("activated",false)
 
 func adddeath():
-	if (deaths==2):
-		$"../HUD/ColorRect".material.set_shader_parameter("activated",true)
-	deaths+=1
-	return deaths>=3
+	if $DeathTime.is_stopped():
+		$DeathTime.start()
+		deaths+=1
+		if (deaths==2):
+			$"../HUD/ColorRect".material.set_shader_parameter("activated",true)
+		return deaths>=3
+	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,3 +41,7 @@ func _on_timer_timeout():
 	$"../player".visible=true
 	$"../player".reset()
 	get_parent().get_node("Control").paused=true
+
+
+func _on_death_time_timeout():
+	pass # Replace with function body.

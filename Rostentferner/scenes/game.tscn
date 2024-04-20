@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://uirj7rkwubfv" path="res://scenes/button.tscn" id="5_wq3r6"]
 [ext_resource type="PackedScene" uid="uid://c8yqt4wwr7bpe" path="res://scenes/activated_door.tscn" id="6_xne04"]
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="8_gbf2c"]
-[ext_resource type="PackedScene" path="res://scenes/finish_line.tscn" id="9_6mp3t"]
-[ext_resource type="PackedScene" path="res://scenes/energy_barrier.tscn" id="13_lrfte"]
+[ext_resource type="PackedScene" uid="uid://b00dbebsmt1sh" path="res://scenes/finish_line.tscn" id="9_6mp3t"]
+[ext_resource type="PackedScene" uid="uid://bk1rl601ddscx" path="res://scenes/energy_barrier.tscn" id="13_lrfte"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnqhu"]
 shader = ExtResource("1_fhqg2")
