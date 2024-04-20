@@ -17,13 +17,12 @@ func state_process(_delta):
 		player.jump_available=true
 		return self
 	else:
-		player.jump_available = false
 		return get_parent().get_node("air")
 		
 
 func end_state():
-	player.jump_available = false
-	pass
+	player.jump_available=true
+	$"../../CoyoteTimer".start()
 
 func start_state():
 	player.jump_available = true
