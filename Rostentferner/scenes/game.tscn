@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdluft7184888"]
+[gd_scene load_steps=20 format=3 uid="uid://bdluft7184888"]
 
 [ext_resource type="PackedScene" uid="uid://ctqhp3ikx03iw" path="res://scenes/hud.tscn" id="1_nwsoo"]
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
 [ext_resource type="Texture2D" uid="uid://cle8m2m372xai" path="res://assets/backgroundtiles.png" id="4_qs2sj"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="5_hb313"]
-[ext_resource type="PackedScene" uid="uid://cuhb6gxtc0o30" path="res://scenes/button.tscn" id="5_wq3r6"]
-[ext_resource type="PackedScene" uid="uid://dgx0l7acvitqg" path="res://scenes/activated_door.tscn" id="6_xne04"]
+[ext_resource type="PackedScene" uid="uid://uirj7rkwubfv" path="res://scenes/button.tscn" id="5_wq3r6"]
+[ext_resource type="PackedScene" uid="uid://c8yqt4wwr7bpe" path="res://scenes/activated_door.tscn" id="6_xne04"]
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="8_gbf2c"]
-[ext_resource type="PackedScene" path="res://scenes/finish_line.tscn" id="9_6mp3t"]
+[ext_resource type="PackedScene" uid="uid://3bc3kt26tah3" path="res://scenes/finish_line.tscn" id="9_6mp3t"]
+[ext_resource type="PackedScene" uid="uid://bk1rl601ddscx" path="res://scenes/energy_barrier.tscn" id="13_lrfte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
@@ -1037,4 +1038,8 @@ position = Vector2(-80, 128)
 button = NodePath("../Button")
 
 [node name="Finish" parent="." instance=ExtResource("9_6mp3t")]
-position = Vector2(552, 152)
+position = Vector2(2320, 192)
+
+[node name="EnergyBarrier" parent="." instance=ExtResource("13_lrfte")]
+position = Vector2(272, 144)
+rotation = 1.5708

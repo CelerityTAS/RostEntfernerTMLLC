@@ -22,10 +22,16 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	get_parent().get_node("Laser").reset()
-	$"../player".reset()
-	get_parent().get_node("Control").paused=true
-	resetdeaths()
+	$"../player".visible=false
+	$Timer.start()
 	times_completed+=1
 	
 	$"../HUD/RunCounter/RunCount".text=str(times_completed)
 	pass # Replace with function body.
+
+
+func _on_timer_timeout():
+	$"../player".visible=true
+	$"../player".reset()
+	get_parent().get_node("Control").paused=true
+	resetdeaths()
