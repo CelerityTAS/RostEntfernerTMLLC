@@ -1,15 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk1rl601ddscx"]
+[gd_scene load_steps=4 format=3 uid="uid://bk1rl601ddscx"]
 
 [ext_resource type="Script" path="res://scenes/energy_barrier.gd" id="1_wpj5a"]
+[ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_rv1ra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7b7g"]
-size = Vector2(96, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qiwvi"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67q56"]
-size = Vector2(21.5942, 22.1854)
+size = Vector2(16, 128)
 
 [node name="EnergyBarrier" type="Node2D"]
 script = ExtResource("1_wpj5a")
@@ -17,28 +12,12 @@ script = ExtResource("1_wpj5a")
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_a7b7g")
 
-[node name="lowerleftblock" type="StaticBody2D" parent="Area2D"]
-collision_layer = 3
-
-[node name="Sprite2D2" type="Sprite2D" parent="Area2D/lowerleftblock"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/lowerleftblock"]
-position = Vector2(64, 0)
-shape = SubResource("RectangleShape2D_qiwvi")
-
-[node name="upperrightblock" type="StaticBody2D" parent="Area2D"]
-collision_layer = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/upperrightblock"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/upperrightblock"]
-position = Vector2(-64, -2.01948e-28)
-scale = Vector2(1.48188, 1.44239)
-shape = SubResource("RectangleShape2D_67q56")
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_rv1ra")
+region_enabled = true
+region_rect = Rect2(331.324, 65.6306, 22.9554, 129.503)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
