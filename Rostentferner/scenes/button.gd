@@ -12,14 +12,9 @@ var pressed = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
-func _draw():
-	return # TODO: Sprite add
-	if pressed:
-		$OpenSprite.draw()
-	else: $ClosedSprite.draw()
 
 
 func _on_body_entered(body):
-	pressed=true
-	ButtonPressed.emit()
+	if body.name=="player":
+		pressed=true
+		ButtonPressed.emit()

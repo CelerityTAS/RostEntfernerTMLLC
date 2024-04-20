@@ -1,56 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://p63aphhb1y5b"]
+[gd_scene load_steps=3 format=3 uid="uid://p63aphhb1y5b"]
 
 [ext_resource type="Script" path="res://scenes/menus/optionen.gd" id="1_56wnb"]
+[ext_resource type="FontFile" uid="uid://cmvueg4i7fbe6" path="res://assets/Cave-Story.ttf" id="2_ixlle"]
 
 [node name="Optionen" type="Node2D"]
 script = ExtResource("1_56wnb")
 
 [node name="optionencontainer" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="optionencontainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="optionencontainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
-offset_top = -52.5
-offset_right = 36.5
-offset_bottom = 52.5
+offset_left = -99.0
+offset_top = -54.0
+offset_right = 96.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+alignment = 1
 
-[node name="optionenname" type="Label" parent="optionencontainer/GridContainer"]
+[node name="optionenname" type="Label" parent="optionencontainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_ixlle")
+theme_override_font_sizes/font_size = 30
 text = "Optionen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="audiolabel" type="Label" parent="optionencontainer/GridContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="optionencontainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
+
+[node name="audiolabel" type="Label" parent="optionencontainer/VBoxContainer/HBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ixlle")
+theme_override_font_sizes/font_size = 30
 text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="audio" type="HSlider" parent="optionencontainer/GridContainer"]
+[node name="audio" type="HSlider" parent="optionencontainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 1
 layout_mode = 2
 value = 50.0
 
-[node name="FullScreenText" type="Label" parent="optionencontainer/GridContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="optionencontainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="FullScreenText" type="Label" parent="optionencontainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ixlle")
+theme_override_font_sizes/font_size = 30
 text = "FullScreen"
 
-[node name="Fullscreen" type="CheckButton" parent="optionencontainer/GridContainer"]
+[node name="Fullscreen" type="CheckButton" parent="optionencontainer/VBoxContainer/HBoxContainer2"]
+layout_direction = 3
 layout_mode = 2
 
-[node name="close" type="Button" parent="optionencontainer/GridContainer"]
+[node name="close" type="Button" parent="optionencontainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ixlle")
+theme_override_font_sizes/font_size = 30
 text = "Close"
 
-[connection signal="value_changed" from="optionencontainer/GridContainer/audio" to="." method="_on_audio_value_changed"]
-[connection signal="toggled" from="optionencontainer/GridContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="pressed" from="optionencontainer/GridContainer/close" to="." method="_on_close_pressed"]
+[connection signal="value_changed" from="optionencontainer/VBoxContainer/HBoxContainer/audio" to="." method="_on_audio_value_changed"]
+[connection signal="toggled" from="optionencontainer/VBoxContainer/HBoxContainer2/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="optionencontainer/VBoxContainer/close" to="." method="_on_close_pressed"]

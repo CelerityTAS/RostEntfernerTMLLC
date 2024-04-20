@@ -1,55 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://b12b22oq0xqj0"]
+[gd_scene load_steps=3 format=3 uid="uid://b12b22oq0xqj0"]
 
 [ext_resource type="Script" path="res://scenes/mainmenu.gd" id="1_mktu7"]
+[ext_resource type="FontFile" uid="uid://cmvueg4i7fbe6" path="res://assets/Cave-Story.ttf" id="2_tun06"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_mktu7")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -52.0
-offset_right = 48.0
-offset_bottom = 52.0
+offset_left = -67.0
+offset_top = -69.5
+offset_right = 67.0
+offset_bottom = 69.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="gametitle" type="Label" parent="GridContainer"]
+[node name="gametitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_tun06")
+theme_override_font_sizes/font_size = 30
 text = "Game Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="start" type="Button" parent="GridContainer"]
+[node name="start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../exit")
 focus_neighbor_bottom = NodePath("../options")
 focus_next = NodePath("../options")
 focus_previous = NodePath("../exit")
+theme_override_fonts/font = ExtResource("2_tun06")
+theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="options" type="Button" parent="GridContainer"]
+[node name="options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../start")
 focus_neighbor_bottom = NodePath("../exit")
 focus_next = NodePath("../exit")
 focus_previous = NodePath("../start")
+theme_override_fonts/font = ExtResource("2_tun06")
+theme_override_font_sizes/font_size = 30
 text = "Optionen"
 
-[node name="exit" type="Button" parent="GridContainer"]
+[node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../options")
 focus_neighbor_bottom = NodePath("../start")
 focus_next = NodePath("../start")
 focus_previous = NodePath("../options")
+theme_override_fonts/font = ExtResource("2_tun06")
+theme_override_font_sizes/font_size = 30
 text = "Exit"
 
-[connection signal="pressed" from="GridContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="GridContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="GridContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
