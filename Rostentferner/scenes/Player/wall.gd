@@ -31,11 +31,11 @@ func state_process(_delta):
 
 func jump():
 	if $"../../LockedTimer".is_stopped():
-		player.movement.y = player.JUMP_VELOCITY*0.8
+		player.movement.y = player.JUMP_VELOCITY*0.85
 	if $"../../RightWallRayCast".is_colliding():
-		player.movement.x = -150
+		player.movement.x = -200
 	else:
-		player.movement.x = 150
+		player.movement.x = 200
 	$"../../LockedTimer".start()
 
 func end_state():
