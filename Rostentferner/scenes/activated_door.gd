@@ -13,7 +13,6 @@ func _process(delta):
 	pass
 
 func _on_button_button_pressed():
-	print("Opened Door")
 	$AnimatedSprite2D.play("default")
 	self.collision_layer=8
 	open = !open
