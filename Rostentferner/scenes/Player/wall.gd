@@ -13,8 +13,10 @@ func state_process(_delta):
 		return get_parent().get_node("air")
 	if (Input.is_action_pressed("right") and $"../../LeftWallRayCast".is_colliding()):
 		return get_parent().get_node("air")
+		
 	if ($"../../LeftWallRayCast".is_colliding() or $"../../RightWallRayCast".is_colliding() ):
 		player.jump_available=true
+		$"../../CoyoteTimer".start()
 		return self
 	else:
 		return get_parent().get_node("air")
