@@ -14,8 +14,10 @@ void fragment() {
 		} else {
 			
 			// if the pixel has enough red
-			vec4 tempcol = vec4(color.b,color.r,color.g,color.a);
-			COLOR = tempcol;
+			if (color.r > 0.3f+(color.b+color.g)/2.0f && color.r > 0.4) {
+				vec4 tempcol = vec4(color.b,color.r,color.g,color.a);
+				COLOR = tempcol;
+			} else COLOR=color;
 		}
 }
 
