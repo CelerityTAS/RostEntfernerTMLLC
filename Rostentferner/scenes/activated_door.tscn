@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgx0l7acvitqg"]
+[gd_scene load_steps=9 format=3 uid="uid://c8yqt4wwr7bpe"]
 
 [ext_resource type="Script" path="res://scenes/activated_door.gd" id="1_1h37n"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_viiuv"]
