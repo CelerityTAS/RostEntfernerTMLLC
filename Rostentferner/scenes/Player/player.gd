@@ -16,7 +16,11 @@ var movement = Vector2()
 
 
 func _physics_process(delta):
-	if Input.is_action_pressed("jump") and jump_available:
+	if Input.is_action_just_pressed("jump"):
+		$JumpBufferTimer.start()
+	if Input.is_action_just_released("jump"):
+		$JumpBufferTimer.stop()
+	if !$JumpBufferTimer.is_stopped() and jump_available:
 		movement.y = JUMP_VELOCITY
 		jump_available = false
 	if !Input.is_action_pressed("jump") and movement.y < 0:

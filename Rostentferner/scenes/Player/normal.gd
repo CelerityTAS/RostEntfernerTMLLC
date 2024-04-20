@@ -2,17 +2,14 @@ extends Node
 
 @onready var player = get_parent().get_parent()
 var next_state = null
-var coyoteTimeout = false
 @onready var coyote_timer = $"../../CoyoteTimer"
 
 func state_process(_delta):
-	if coyoteTimeout:
-		coyoteTimeout = false
+	if coyote_timer.is_stopped():
 		next_state = get_parent().get_node("air")
 	else: 
 		next_state = self
 	
-	player.movement.x *= player.DRAG
 	
 	if !player.is_on_floor():
 		next_state = get_parent().get_node("air")
@@ -24,6 +21,7 @@ func state_process(_delta):
 		player.jump_available = true
 		
 	player.movement.x += player.direction_input()*player.SPEED
+	player.movement.x *= player.DRAG
 	
 	return next_state
 
@@ -34,8 +32,3 @@ func end_state():
 
 func start_state():
 	pass
-
-
-
-func _on_coyote_timer_timeout():
-	player.jump_available = false
