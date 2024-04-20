@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg1uasgjkiile"]
+[gd_scene load_steps=8 format=3 uid="uid://cg1uasgjkiile"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_2723d"]
 [ext_resource type="Texture2D" uid="uid://c04y7h854hf0k" path="res://assets/cutielinks_1.png" id="2_bpacy"]
 [ext_resource type="Script" path="res://scenes/Player/StateHandler.gd" id="3_30vb3"]
 [ext_resource type="Script" path="res://scenes/Player/normal.gd" id="4_b74j0"]
 [ext_resource type="Script" path="res://scenes/Player/air.gd" id="5_ru84c"]
-[ext_resource type="Script" path="res://scenes/Player/wall.gd" id="6_kdb8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dds"]
 size = Vector2(31, 48)
@@ -43,11 +42,7 @@ script = ExtResource("4_b74j0")
 script = ExtResource("5_ru84c")
 
 [node name="wall" type="Node" parent="StateHandler"]
-script = ExtResource("6_kdb8q")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-one_shot = true
 
-[node name="JumpBufferTimer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+[connection signal="timeout" from="CoyoteTimer" to="StateHandler/normal" method="_on_coyote_timer_timeout"]
