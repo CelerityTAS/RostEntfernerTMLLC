@@ -4,13 +4,11 @@ extends CharacterBody2D
 
 const UP_VECTOR = Vector2(0,-1)
 
-@export var SPEED = 300.0
+@export var SPEED = 100.0
 @export var JUMP_VELOCITY = -400.0
 @export var MAX_JUMP_TIMER = 11
 @export var MAX_COYOTE_TIMER = 0.1 #in Sec
-@export var ACCELERATION = 30
-@export var DECELERATION = 100
-@export var TERMINAL_SPEED = 500
+@export var DRAG = 0.8
 @export var GRAVITY = 1000
 @onready var sprite = $AnimatedSprite2D
 var jump_available = false

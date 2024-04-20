@@ -12,7 +12,8 @@ func state_process(_delta):
 	else: 
 		next_state = self
 	
-	 
+	player.movement.x *= player.DRAG
+	
 	if !player.is_on_floor():
 		next_state = get_parent().get_node("air")
 		if coyote_timer.is_stopped():
@@ -22,11 +23,7 @@ func state_process(_delta):
 		coyote_timer.stop()
 		player.jump_available = true
 		
-	var direction = player.direction_input()
-	if direction == 0:
-		player.movement.x = move_toward(player.velocity.x, 0, player.DECELERATION)
-	else:
-		player.movement.x = move_toward(player.velocity.x, direction * player.SPEED, player.ACCELERATION)
+	player.movement.x += player.direction_input()*player.SPEED
 	
 	return next_state
 
