@@ -5,12 +5,18 @@ void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
+uniform bool activated = false;
+
 void fragment() {
 	vec4 color = texture(TEXTURE, UV);
-	// if the pixel has enough red
-	vec4 tempcol = vec4(color.b,color.r,color.g,color.a);
-	COLOR = tempcol;
-	
+	if (!activated) {
+			COLOR=color;
+		} else {
+			
+			// if the pixel has enough red
+			vec4 tempcol = vec4(color.b,color.r,color.g,color.a);
+			COLOR = tempcol;
+		}
 }
 
 //void light() {

@@ -1,10 +1,5 @@
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 signal ButtonPressed
 var pressed = false
 
@@ -12,8 +7,12 @@ var pressed = false
 func _process(delta):
 	pass
 
+func _ready():
+	$Sprite2D.material.set_shader_parameter("activated",false)
 
 func _on_body_entered(body):
 	if body.name=="player":
-		pressed=true
-		ButtonPressed.emit()
+		$Sprite2D.material.set_shader_parameter("activated",true)
+		if !pressed:
+			pressed=true
+			ButtonPressed.emit()
