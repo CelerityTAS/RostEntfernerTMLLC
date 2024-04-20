@@ -5,7 +5,6 @@ extends Node
 @onready var player = get_parent()
 
 
-
 func _process(delta):
 		player.movement.y += player.GRAVITY * delta
 		set_animation()
