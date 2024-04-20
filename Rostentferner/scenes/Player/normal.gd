@@ -5,10 +5,7 @@ var next_state = null
 @onready var coyote_timer = $"../../CoyoteTimer"
 
 func state_process(_delta):
-	if coyote_timer.is_stopped():
-		next_state = get_parent().get_node("air")
-	else: 
-		next_state = self
+	next_state = self
 	
 	
 	if !player.is_on_floor():

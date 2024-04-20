@@ -22,7 +22,7 @@ func _physics_process(delta):
 		$JumpBufferTimer.stop()
 	
 	if (!$StateHandler.current_state==$wall):
-		if !$JumpBufferTimer.is_stopped() and jump_available:
+		if !$JumpBufferTimer.is_stopped() and jump_available and ($CoyoteTimer.time_left>0 or is_on_floor()):
 			movement.y = JUMP_VELOCITY
 			jump_available = false
 		if !Input.is_action_pressed("jump") and movement.y < 0:
