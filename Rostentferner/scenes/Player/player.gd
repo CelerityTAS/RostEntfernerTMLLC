@@ -24,6 +24,10 @@ func _physics_process(delta):
 	if (!$StateHandler.current_state==$wall):
 		if !$JumpBufferTimer.is_stopped() and jump_available and ($CoyoteTimer.time_left>0 or is_on_floor()):
 			movement.y = JUMP_VELOCITY
+			if $LeftWallRayCast.is_colliding():
+				movement.x=100
+			if $RightWallRayCast.is_colliding():
+				movement.x=-100
 			jump_available = false
 		if !Input.is_action_pressed("jump") and movement.y < 0:
 			movement.y *= 0.7
@@ -31,6 +35,11 @@ func _physics_process(delta):
 	set_velocity(movement)
 	set_up_direction(UP_VECTOR)
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().get_meta("box"):
+			collision.get_collider().apply_central_impulse(-collision.get_normal() * 10)
 	movement = velocity
 
 func die():
