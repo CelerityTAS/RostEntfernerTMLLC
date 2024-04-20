@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8yqt4wwr7bpe"]
+[gd_scene load_steps=11 format=3 uid="uid://dgx0l7acvitqg"]
 
 [ext_resource type="Script" path="res://scenes/activated_door.gd" id="1_1h37n"]
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="2_u1c1i"]
