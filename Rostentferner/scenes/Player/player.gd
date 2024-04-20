@@ -44,3 +44,7 @@ func direction_input():
 	if Input.is_action_pressed("right"):
 		direction_temp += 1
 	return direction_temp
+
+func reset():
+	movement = Vector2(0,0)
+	position = Vector2(-547,-113)
