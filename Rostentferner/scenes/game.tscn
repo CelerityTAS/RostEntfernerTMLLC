@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdluft7184888"]
+[gd_scene load_steps=7 format=3 uid="uid://bdluft7184888"]
 
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
 [ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
+[ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
@@ -838,3 +839,11 @@ layer_0/tile_data = PackedInt32Array(-589842, 327680, 0, -589841, 327680, 0, -58
 position = Vector2(0, 4)
 
 [node name="Laser" parent="." instance=ExtResource("3_mt6td")]
+position = Vector2(-598, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_dmsl0")
