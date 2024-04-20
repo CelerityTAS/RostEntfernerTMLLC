@@ -20,17 +20,21 @@ func _physics_process(delta):
 		$JumpBufferTimer.start()
 	if Input.is_action_just_released("jump"):
 		$JumpBufferTimer.stop()
-	if !$JumpBufferTimer.is_stopped() and jump_available:
-		movement.y = JUMP_VELOCITY
-		jump_available = false
-	if !Input.is_action_pressed("jump") and movement.y < 0:
-		movement.y *= 0.7
+	
+	if (!$StateHandler.current_state==$wall):
+		if !$JumpBufferTimer.is_stopped() and jump_available:
+			movement.y = JUMP_VELOCITY
+			jump_available = false
+		if !Input.is_action_pressed("jump") and movement.y < 0:
+			movement.y *= 0.7
 	
 	set_velocity(movement)
 	set_up_direction(UP_VECTOR)
 	move_and_slide()
 	movement = velocity
 
+func die():
+	get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 
 func direction_input():
 	var direction_temp = 0

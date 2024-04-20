@@ -5,11 +5,7 @@
 [ext_resource type="Script" path="res://scenes/Player/StateHandler.gd" id="3_30vb3"]
 [ext_resource type="Script" path="res://scenes/Player/normal.gd" id="4_b74j0"]
 [ext_resource type="Script" path="res://scenes/Player/air.gd" id="5_ru84c"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" path="res://scenes/Player/wall.gd" id="6_sn0v2"]
-=======
 [ext_resource type="Script" path="res://scenes/Player/wall.gd" id="6_kdb8q"]
->>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dds"]
 size = Vector2(31, 48)
@@ -28,6 +24,12 @@ animations = [{
 [node name="player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_2723d")
+SPEED = null
+JUMP_VELOCITY = null
+MAX_JUMP_TIMER = null
+MAX_COYOTE_TIMER = null
+DRAG = null
+GRAVITY = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 6)
@@ -48,11 +50,7 @@ script = ExtResource("4_b74j0")
 script = ExtResource("5_ru84c")
 
 [node name="wall" type="Node" parent="StateHandler"]
-<<<<<<< Updated upstream
-script = ExtResource("6_sn0v2")
-=======
 script = ExtResource("6_kdb8q")
->>>>>>> Stashed changes
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 
@@ -60,11 +58,11 @@ script = ExtResource("6_kdb8q")
 wait_time = 0.1
 
 [node name="RightWallRayCast" type="RayCast2D" parent="."]
-target_position = Vector2(21, 0)
+target_position = Vector2(45, 1)
 collide_with_areas = true
 
 [node name="LeftWallRayCast" type="RayCast2D" parent="."]
-target_position = Vector2(-21, 0)
+target_position = Vector2(-38, 0)
 collide_with_areas = true
 
 [connection signal="timeout" from="CoyoteTimer" to="StateHandler/normal" method="_on_coyote_timer_timeout"]

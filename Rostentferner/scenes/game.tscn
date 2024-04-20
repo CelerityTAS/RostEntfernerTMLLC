@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
-[ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
+[ext_resource type="PackedScene" path="res://scenes/laser.tscn" id="3_mt6td"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
