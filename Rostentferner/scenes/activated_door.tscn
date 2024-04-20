@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8yqt4wwr7bpe"]
+[gd_scene load_steps=11 format=3 uid="uid://c8yqt4wwr7bpe"]
 
 [ext_resource type="Script" path="res://scenes/activated_door.gd" id="1_1h37n"]
+[ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="2_u1c1i"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_viiuv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdl7v"]
 size = Vector2(32, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycjib"]
+shader = ExtResource("2_u1c1i")
+shader_parameter/activated = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_du0x1"]
 atlas = ExtResource("2_viiuv")
@@ -50,4 +55,5 @@ script = ExtResource("1_1h37n")
 shape = SubResource("RectangleShape2D_bdl7v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ycjib")
 sprite_frames = SubResource("SpriteFrames_cc6eh")

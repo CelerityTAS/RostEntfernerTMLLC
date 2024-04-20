@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdluft7184888"]
+[gd_scene load_steps=13 format=3 uid="uid://bdluft7184888"]
 
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
 [ext_resource type="PackedScene" uid="uid://uirj7rkwubfv" path="res://scenes/button.tscn" id="5_wq3r6"]
 [ext_resource type="PackedScene" uid="uid://c8yqt4wwr7bpe" path="res://scenes/activated_door.tscn" id="6_xne04"]
+[ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="8_gbf2c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
@@ -866,6 +867,10 @@ terrain_set_0/terrain_0/color = Color(0.536454, 0.531715, 0.532895, 1)
 sources/0 = SubResource("TileSetAtlasSource_1rrkh")
 sources/1 = SubResource("TileSetAtlasSource_o2nhi")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eepou"]
+shader = ExtResource("8_gbf2c")
+shader_parameter/activated = false
+
 [node name="game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_rcv1w")]
@@ -897,5 +902,6 @@ script = ExtResource("4_dmsl0")
 position = Vector2(20, -72)
 
 [node name="ActivatedDoor" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_xne04")]
+material = SubResource("ShaderMaterial_eepou")
 position = Vector2(96, -96)
 button = NodePath("../Button")
