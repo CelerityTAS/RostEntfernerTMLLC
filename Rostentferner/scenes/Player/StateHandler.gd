@@ -4,20 +4,17 @@ extends Node
 @onready var next_state = $normal
 @onready var player = get_parent()
 
-@onready var coyoteTimer = player.MAX_COYOTE_TIMER
+
 
 func _process(delta):
-		
+		player.movement.y += player.GRAVITY * delta
 		set_animation()
 		next_state = current_state.state_process(delta)
 		if current_state != next_state:
-			if coyoteTimer <= 0:
-				current_state.end_state()
-				current_state = next_state
-				current_state.start_state()
-			coyoteTimer -= 1
-		else:
-			coyoteTimer = player.MAX_COYOTE_TIMER
+			current_state.end_state()
+			current_state = next_state
+			current_state.start_state()
+
 
 func play_transition(transition_name):
 	player.sprite.play(transition_name)

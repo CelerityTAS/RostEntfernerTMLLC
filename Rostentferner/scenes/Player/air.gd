@@ -5,7 +5,7 @@ var next_state = null
 
 func state_process(_delta):
 	next_state = self
-	player.movement.y += player.GRAVITY * _delta
+	
 	if player.is_on_floor():
 		next_state = get_parent().get_node("normal")
 	var direction = player.direction_input()

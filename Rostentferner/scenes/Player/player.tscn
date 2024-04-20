@@ -42,3 +42,7 @@ script = ExtResource("4_b74j0")
 script = ExtResource("5_ru84c")
 
 [node name="wall" type="Node" parent="StateHandler"]
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CoyoteTimer" to="StateHandler/normal" method="_on_coyote_timer_timeout"]

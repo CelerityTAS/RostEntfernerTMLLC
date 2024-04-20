@@ -2,15 +2,25 @@ extends Node
 
 @onready var player = get_parent().get_parent()
 var next_state = null
+var jumpAvailable = true
+var coyoteTimeout = false
+@onready var coyote_timer = $"../../CoyoteTimer"
 
 func state_process(_delta):
-	next_state = self
+	if coyoteTimeout:
+		coyoteTimeout = false
+		next_state = get_parent().get_node("air")
+	else: 
+		next_state = self
 	
 	 
 	if !player.is_on_floor():
-		
-		next_state = get_parent().get_node("air")
-	
+		if coyote_timer.is_stopped():
+			coyote_timer.start(player.MAX_COYOTE_TIMER)
+			
+	else:
+		coyote_timer.stop()
+
 	if Input.is_action_pressed("jump"):
 		player.movement.y = player.JUMP_VELOCITY
 		next_state = get_parent().get_node("air")
@@ -30,3 +40,7 @@ func end_state():
 func start_state():
 	pass
 
+
+
+func _on_coyote_timer_timeout():
+	coyoteTimeout = true
