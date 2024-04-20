@@ -44,8 +44,10 @@ func die():
 		if (get_parent().get_node("Finish").adddeath()):
 			get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 		else:
+			get_parent().get_node("Laser").reset()
 			reset()
-	get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
+			get_parent().get_node("Control").paused=true
+	else: get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 
 func direction_input():
 	var direction_temp = 0
