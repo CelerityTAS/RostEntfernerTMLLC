@@ -15,8 +15,9 @@ func _ready():
 func start():
 	step = 0
 
-func reset():
-	lastTrackedPos = trackedPos
+func reset(hasFinished):
+	if hasFinished:
+		lastTrackedPos = trackedPos
 	trackedPos = []
 	position.x = -598
 	nextMove = 0
