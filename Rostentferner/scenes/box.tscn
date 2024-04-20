@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4v4fvlsn3civ"]
+
+[ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="1_2mt15"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6iyel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd60v"]
+size = Vector2(32, 32)
+
+[node name="Box" type="RigidBody2D"]
+collision_layer = 3
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_6iyel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2mt15")
+region_enabled = true
+region_rect = Rect2(244.23, 32.8724, 32, 32.5267)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qd60v")

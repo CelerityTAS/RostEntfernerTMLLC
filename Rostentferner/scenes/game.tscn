@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdluft7184888"]
+[gd_scene load_steps=11 format=3 uid="uid://bdluft7184888"]
 
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
 [ext_resource type="PackedScene" uid="uid://uirj7rkwubfv" path="res://scenes/button.tscn" id="5_wq3r6"]
 [ext_resource type="PackedScene" uid="uid://c8yqt4wwr7bpe" path="res://scenes/activated_door.tscn" id="6_xne04"]
+[ext_resource type="PackedScene" uid="uid://c4v4fvlsn3civ" path="res://scenes/box.tscn" id="7_2u0ga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
@@ -826,6 +827,8 @@ terrain_set_0/terrain_0/name = "wall"
 terrain_set_0/terrain_0/color = Color(0.536454, 0.531715, 0.532895, 1)
 sources/0 = SubResource("TileSetAtlasSource_1rrkh")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5wv63"]
+
 [node name="game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_rcv1w")]
@@ -855,5 +858,10 @@ position = Vector2(-131, 275)
 
 [node name="ActivatedDoor" parent="." instance=ExtResource("6_xne04")]
 position = Vector2(24, 125)
+
+[node name="Box" parent="." instance=ExtResource("7_2u0ga")]
+position = Vector2(-533, -190)
+physics_material_override = SubResource("PhysicsMaterial_5wv63")
+freeze_mode = 1
 
 [connection signal="ButtonPressed" from="Button" to="ActivatedDoor" method="_on_button_button_pressed"]
