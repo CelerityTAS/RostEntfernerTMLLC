@@ -7,10 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd60v"]
 size = Vector2(32, 32)
 
-[node name="Box" type="RigidBody2D"]
+[node name="MovableBox" type="RigidBody2D"]
 collision_layer = 3
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_6iyel")
+metadata/box = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2mt15")
