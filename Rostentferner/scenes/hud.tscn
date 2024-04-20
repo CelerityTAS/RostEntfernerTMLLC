@@ -9,6 +9,7 @@ noise = SubResource("FastNoiseLite_ljvye")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjqoc"]
 shader = ExtResource("1_0r8on")
+shader_parameter/activated = false
 shader_parameter/noise = SubResource("NoiseTexture2D_poh86")
 
 [node name="CanvasLayer" type="CanvasLayer"]

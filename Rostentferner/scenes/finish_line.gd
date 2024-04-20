@@ -8,11 +8,15 @@ var times_completed = 0
 func _ready():
 	deaths=0
 	times_completed=0
+	$"../HUD/ColorRect".material.set_shader_parameter("activated",false)
 
 func resetdeaths():
 	deaths=0
+	$"../HUD/ColorRect".material.set_shader_parameter("activated",false)
 
 func adddeath():
+	if (deaths==2):
+		$"../HUD/ColorRect".material.set_shader_parameter("activated",true)
 	deaths+=1
 	return deaths>=3
 
@@ -34,4 +38,3 @@ func _on_timer_timeout():
 	$"../player".visible=true
 	$"../player".reset()
 	get_parent().get_node("Control").paused=true
-	resetdeaths()
