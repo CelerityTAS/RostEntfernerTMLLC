@@ -11,14 +11,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func _draw():
-	return #TODO: sprite
-	if (open):
-		$OpenSprite.draw()
-	else:
-		$ClosedSprite.draw()
-
 func _on_button_button_pressed():
 	print("Opened Door")
-	self.collision_layer=10
+	$AnimatedSprite2D.play("default")
+	self.collision_layer=8
 	open = !open

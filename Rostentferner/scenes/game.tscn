@@ -888,7 +888,7 @@ offset_bottom = 40.0
 script = ExtResource("4_dmsl0")
 
 [node name="Button" parent="." instance=ExtResource("5_wq3r6")]
-position = Vector2(184, 208)
+position = Vector2(552, 88)
 
 [node name="ActivatedDoor" parent="." instance=ExtResource("6_xne04")]
 position = Vector2(96, -96)
