@@ -21,7 +21,7 @@ func _process(delta):
 	
 	
 	for body in get_overlapping_bodies():
-		if body.has_function("die"):
+		if body.has_method("die"):
 			body.die()
 
 
