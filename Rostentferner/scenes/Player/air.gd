@@ -4,6 +4,8 @@ extends Node
 var next_state = null
 @onready var right_wall_ray_cast = $"../../RightWallRayCast"
 @onready var left_wall_ray_cast = $"../../LeftWallRayCast"
+@onready var right_wall_ray_cast_2 = $"../../RightWallRayCast2"
+@onready var left_wall_ray_cast_2 = $"../../LeftWallRayCast2"
 
 func state_process(_delta):
 	next_state = self

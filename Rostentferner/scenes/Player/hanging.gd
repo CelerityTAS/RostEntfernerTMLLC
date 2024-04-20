@@ -29,7 +29,9 @@ func state_process(_delta):
 		
 
 func jump():
-	player.movement.y = player.JUMP_VELOCITY
+	if $"../../LedgeJumpProtection".is_stopped():
+		player.movement.y = player.JUMP_VELOCITY
+	$"../../LedgeJumpProtection".start()
 	
 
 func end_state():

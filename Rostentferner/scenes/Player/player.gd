@@ -20,6 +20,8 @@ func _physics_process(delta):
 		$JumpBufferTimer.start()
 	if Input.is_action_just_released("jump"):
 		$JumpBufferTimer.stop()
+	if !Input.is_action_pressed("jump") and movement.y < 0:
+		movement.y *= 0.7
 	
 	if !$JumpBufferTimer.is_stopped() and jump_available:
 		$StateHandler.current_state.jump()
