@@ -51,7 +51,7 @@ func direction_input():
 
 func reset():
 	movement = Vector2(0,0)
-	position = Vector2(-547,-113)
+	position = Vector2(-562,197)
 
 
 func _on_coyote_timer_timeout():
