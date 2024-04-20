@@ -35,6 +35,9 @@ func _process(delta):
 func _on_timer_timeout():
 	if step != -1:
 		trackedPos.append(player.position.x)
+		if round(lastTrackedPos.size()/8)>0:
+			if step % round(lastTrackedPos.size()/8)==0:
+				step+=1
 		step += 1
 		if step-DELAY>=0:
 			if step-DELAY<lastTrackedPos.size():
