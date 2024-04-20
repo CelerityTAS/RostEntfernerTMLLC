@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().get_meta("box"):
+		if collision.get_collider().has_meta("box"):
 			collision.get_collider().apply_central_impulse(-collision.get_normal() * 10)
 	movement = velocity
 
@@ -44,9 +44,9 @@ func die():
 		if (get_parent().get_node("Finish").adddeath()):
 			get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 		else:
-			get_parent().get_node("Laser").reset(false)
-			reset()
 			get_parent().get_node("Control").paused=true
+			get_parent().get_node("Laser").reset()
+			reset()
 	else: get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 
 func direction_input():
