@@ -21,7 +21,7 @@ func _process(delta):
 	pass
 
 func _on_area_2d_body_entered(body):
-	get_parent().get_node("Laser").reset()
+	$"../Laser".reset(true)
 	$"../player".visible=false
 	$Timer.start()
 	times_completed+=1

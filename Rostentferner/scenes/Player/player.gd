@@ -45,7 +45,7 @@ func die():
 			get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 		else:
 			get_parent().get_node("Control").paused=true
-			get_parent().get_node("Laser").reset()
+			get_parent().get_node("Laser").reset(false)
 			reset()
 	else: get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 

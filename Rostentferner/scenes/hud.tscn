@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://ctqhp3ikx03iw"]
+[gd_scene load_steps=5 format=3 uid="uid://ctqhp3ikx03iw"]
+
+[ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_0r8on"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ljvye"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_poh86"]
+noise = SubResource("FastNoiseLite_ljvye")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjqoc"]
+shader = ExtResource("1_0r8on")
+shader_parameter/noise = SubResource("NoiseTexture2D_poh86")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -27,3 +38,12 @@ text = "Runs: "
 [node name="RunCount" type="Label" parent="RunCounter"]
 layout_mode = 2
 text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fjqoc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
