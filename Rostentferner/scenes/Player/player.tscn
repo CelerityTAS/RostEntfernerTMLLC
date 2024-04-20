@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg1uasgjkiile"]
+[gd_scene load_steps=11 format=3 uid="uid://cg1uasgjkiile"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_2723d"]
 [ext_resource type="Texture2D" uid="uid://c04y7h854hf0k" path="res://assets/cutielinks_1.png" id="2_bpacy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/Player/normal.gd" id="4_b74j0"]
 [ext_resource type="Script" path="res://scenes/Player/air.gd" id="5_ru84c"]
 [ext_resource type="Script" path="res://scenes/Player/wall.gd" id="6_sn0v2"]
+[ext_resource type="Script" path="res://scenes/Player/hanging.gd" id="8_iwk7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dds"]
 size = Vector2(22, 47)
@@ -53,12 +54,16 @@ script = ExtResource("5_ru84c")
 [node name="wall" type="Node" parent="StateHandler"]
 script = ExtResource("6_sn0v2")
 
+[node name="hanging" type="Node" parent="StateHandler"]
+script = ExtResource("8_iwk7x")
+
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
 [node name="RightWallRayCast" type="RayCast2D" parent="."]
 position = Vector2(0, 16)
@@ -70,4 +75,19 @@ position = Vector2(0, 16)
 target_position = Vector2(-21, 0)
 collide_with_areas = true
 
-[connection signal="timeout" from="CoyoteTimer" to="StateHandler/normal" method="_on_coyote_timer_timeout"]
+[node name="LockedTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="RightWallRayCast2" type="RayCast2D" parent="."]
+position = Vector2(0, -25)
+target_position = Vector2(21, 0)
+collide_with_areas = true
+
+[node name="LeftWallRayCast2" type="RayCast2D" parent="."]
+position = Vector2(0, -25)
+target_position = Vector2(-21, 0)
+collide_with_areas = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="LockedTimer" to="." method="_on_locked_timer_timeout"]

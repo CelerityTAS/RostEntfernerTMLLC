@@ -22,6 +22,9 @@ func state_process(_delta):
 	
 	return next_state
 
+func jump():
+	player.movement.y += player.JUMP_VELOCITY
+
 func end_state():
 	pass
 

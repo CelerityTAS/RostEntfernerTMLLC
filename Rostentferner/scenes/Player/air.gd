@@ -14,10 +14,22 @@ func state_process(_delta):
 	if left_wall_ray_cast.is_colliding() or right_wall_ray_cast.is_colliding():
 		next_state=get_parent().get_node("wall")
 		
-	player.movement.x += player.direction_input()*player.SPEED
-	player.movement.x *= player.DRAG
+	if $"../../LockedTimer".is_stopped():
+		player.movement.x += player.direction_input()*player.SPEED
+		player.movement.x *= player.DRAG
+	else:
+		if player.movement.x>0 and player.direction_input()> 0:
+			player.movement.x += player.direction_input()*player.SPEED
+			player.movement.x *= player.DRAG
+		if player.movement.x<0 and player.direction_input()< 0:
+			player.movement.x += player.direction_input()*player.SPEED
+			player.movement.x *= player.DRAG
 	
 	return next_state
+
+func jump():
+	if $"../../LockedTimer".is_stopped():
+		player.movement.y += player.JUMP_VELOCITY
 
 func end_state():
 	pass
