@@ -63,6 +63,6 @@ autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qdl3m")
-frame_progress = 0.236158
+frame_progress = 0.543474
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

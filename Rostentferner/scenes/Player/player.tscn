@@ -54,6 +54,8 @@ script = ExtResource("5_ru84c")
 script = ExtResource("6_sn0v2")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
