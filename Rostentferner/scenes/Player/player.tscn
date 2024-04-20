@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg1uasgjkiile"]
+[gd_scene load_steps=12 format=3 uid="uid://cg1uasgjkiile"]
 
 [ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_2723d"]
 [ext_resource type="Texture2D" uid="uid://c04y7h854hf0k" path="res://assets/cutielinks_1.png" id="2_bpacy"]
@@ -12,6 +12,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1dds"]
 size = Vector2(22, 47)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8euf"]
+atlas = ExtResource("3_636pv")
+region = Rect2(197, 0, 32, 47)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mnb03"]
 animations = [{
 "frames": [{
@@ -24,7 +28,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_636pv")
+"texture": SubResource("AtlasTexture_p8euf")
 }],
 "loop": true,
 "name": &"new_animation",
