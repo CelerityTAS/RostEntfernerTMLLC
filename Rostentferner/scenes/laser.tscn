@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cipcqcmxjoh6b"]
+[gd_scene load_steps=19 format=3 uid="uid://cipcqcmxjoh6b"]
 
 [ext_resource type="Script" path="res://scenes/laser.gd" id="1_vsiw5"]
 [ext_resource type="Texture2D" uid="uid://b440on5y53a47" path="res://assets/Laser.png" id="2_sxowj"]
+[ext_resource type="Texture2D" uid="uid://dakh08hwmab4n" path="res://assets/laser particle.png" id="3_5u67g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_841kv"]
 size = Vector2(73, 20)
@@ -46,6 +47,59 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="Curve" id="Curve_ch840"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4rdvb"]
+curve = SubResource("Curve_ch840")
+
+[sub_resource type="Curve" id="Curve_mgjhg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.28, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p0vl4"]
+curve = SubResource("Curve_mgjhg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cr2j6"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 124.1
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_p0vl4")
+alpha_curve = SubResource("CurveTexture_4rdvb")
+
+[sub_resource type="Curve" id="Curve_ghn8g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.79379, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jlduc"]
+curve = SubResource("Curve_ghn8g")
+
+[sub_resource type="Curve" id="Curve_5roe6"]
+_data = [Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.054945), -0.61334, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e73gl"]
+curve = SubResource("Curve_5roe6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mj3bb"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 240, 1)
+velocity_pivot = Vector3(0, 10, 0)
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_e73gl")
+alpha_curve = SubResource("CurveTexture_jlduc")
+
+[sub_resource type="Environment" id="Environment_ievgg"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
 [node name="Laser" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -63,7 +117,28 @@ wait_time = 0.25
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 73)
 sprite_frames = SubResource("SpriteFrames_qdl3m")
 frame_progress = 0.543474
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, -240, 0, 240)
+width = 5.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -240)
+process_material = SubResource("ParticleProcessMaterial_cr2j6")
+texture = ExtResource("3_5u67g")
+lifetime = 0.2
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 14
+process_material = SubResource("ParticleProcessMaterial_mj3bb")
+texture = ExtResource("3_5u67g")
+lifetime = 0.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ievgg")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
