@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
 [ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
-[ext_resource type="PackedScene" uid="uid://uirj7rkwubfv" path="res://scenes/button.tscn" id="5_wq3r6"]
-[ext_resource type="PackedScene" uid="uid://c8yqt4wwr7bpe" path="res://scenes/activated_door.tscn" id="6_xne04"]
-[ext_resource type="PackedScene" uid="uid://c4v4fvlsn3civ" path="res://scenes/box.tscn" id="7_2u0ga"]
+[ext_resource type="PackedScene" path="res://scenes/button.tscn" id="5_wq3r6"]
+[ext_resource type="PackedScene" path="res://scenes/activated_door.tscn" id="6_xne04"]
+[ext_resource type="PackedScene" path="res://scenes/box.tscn" id="7_2u0ga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
