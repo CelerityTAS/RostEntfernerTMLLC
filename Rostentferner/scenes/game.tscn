@@ -907,7 +907,6 @@ position = Vector2(-120, 56)
 [node name="ActivatedDoor" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_xne04")]
 material = SubResource("ShaderMaterial_eepou")
 position = Vector2(-80, 128)
-open = true
 button = NodePath("../Button")
 
 [node name="Finish" parent="." instance=ExtResource("9_6mp3t")]

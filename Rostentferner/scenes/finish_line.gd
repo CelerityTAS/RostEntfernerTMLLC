@@ -19,5 +19,8 @@ func _process(delta):
 	pass
 
 func _on_area_2d_body_entered(body):
+	get_parent().get_node("Laser").reset()
+	$"../player".reset()
+	get_parent().get_node("Control").paused=true
 	resetdeaths()
 	pass # Replace with function body.
