@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://6tmopliga04t" path="res://assets/Backgroundtile.png" id="3_ggblp"]
 [ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
-[ext_resource type="PackedScene" path="res://scenes/button.tscn" id="5_wq3r6"]
+[ext_resource type="PackedScene" uid="uid://cuhb6gxtc0o30" path="res://scenes/button.tscn" id="5_wq3r6"]
 [ext_resource type="PackedScene" uid="uid://dgx0l7acvitqg" path="res://scenes/activated_door.tscn" id="6_xne04"]
 [ext_resource type="PackedScene" uid="uid://cnnqvqp1jv33l" path="res://scenes/box.tscn" id="7_2u0ga"]
 
@@ -897,15 +897,14 @@ offset_bottom = 40.0
 script = ExtResource("4_dmsl0")
 
 [node name="Button" parent="." instance=ExtResource("5_wq3r6")]
-position = Vector2(552, 88)
+position = Vector2(20, -72)
 
-[node name="ActivatedDoor" parent="." instance=ExtResource("6_xne04")]
+[node name="ActivatedDoor" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_xne04")]
 position = Vector2(96, -96)
+button = NodePath("../Button")
 
 [node name="Box" parent="." instance=ExtResource("7_2u0ga")]
 position = Vector2(-441, -84)
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_5wv63")
 freeze_mode = 1
-
-[connection signal="ButtonPressed" from="Button" to="ActivatedDoor" method="_on_button_button_pressed"]

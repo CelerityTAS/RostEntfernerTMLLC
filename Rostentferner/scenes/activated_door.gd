@@ -1,11 +1,12 @@
 extends StaticBody2D
 
 @export var open = false
+@export var button:Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	button.ButtonPressed.connect(_on_button_button_pressed)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
