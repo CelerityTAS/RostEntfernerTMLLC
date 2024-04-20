@@ -10,7 +10,8 @@ func state_process(_delta):
 		return $"../normal"
 	player.jump_available=true
 	if player.movement.y > 0:
-		player.movement.y*=0.7
+		if (Input.is_action_pressed("right") and $"../../RightWallRayCast".is_colliding()) or (Input.is_action_pressed("left") and $"../../LeftWallRayCast".is_colliding()):
+			player.movement.y*=0.7
 	if (Input.is_action_pressed("left") and $"../../RightWallRayCast".is_colliding()):
 		$"../../CoyoteTimer".start(player.MAX_COYOTE_TIMER)
 		return get_parent().get_node("air")
@@ -22,7 +23,7 @@ func state_process(_delta):
 	
 	if !$"../../RightWallRayCast2".is_colliding() and $"../../RightWallRayCast".is_colliding():
 		next_state = $"../hanging"
-	if !$"../../LeftWallRayCast".is_colliding() and $"../../LeftWallRayCast2".is_colliding():
+	if !$"../../LeftWallRayCast2".is_colliding() and $"../../LeftWallRayCast".is_colliding():
 		next_state = $"../hanging"
 	
 	return next_state
