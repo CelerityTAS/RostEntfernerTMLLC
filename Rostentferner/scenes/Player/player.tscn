@@ -81,12 +81,12 @@ wait_time = 0.3
 one_shot = true
 
 [node name="RightWallRayCast2" type="RayCast2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -32)
 target_position = Vector2(21, 0)
 collide_with_areas = true
 
 [node name="LeftWallRayCast2" type="RayCast2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -32)
 target_position = Vector2(-21, 0)
 collide_with_areas = true
 

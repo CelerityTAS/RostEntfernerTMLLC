@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
 [ext_resource type="PackedScene" path="res://scenes/button.tscn" id="5_wq3r6"]
-[ext_resource type="PackedScene" path="res://scenes/activated_door.tscn" id="6_xne04"]
+[ext_resource type="PackedScene" uid="uid://dgx0l7acvitqg" path="res://scenes/activated_door.tscn" id="6_xne04"]
 [ext_resource type="PackedScene" uid="uid://cnnqvqp1jv33l" path="res://scenes/box.tscn" id="7_2u0ga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
@@ -872,7 +872,7 @@ sources/1 = SubResource("TileSetAtlasSource_o2nhi")
 [node name="game" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_rcv1w")]
-position = Vector2(-547, -113)
+position = Vector2(-562, -90)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(72, -101)
