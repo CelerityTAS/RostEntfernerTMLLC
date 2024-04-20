@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8yqt4wwr7bpe"]
+[gd_scene load_steps=14 format=3 uid="uid://c8yqt4wwr7bpe"]
 
 [ext_resource type="Script" path="res://scenes/activated_door.gd" id="1_1h37n"]
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="2_u1c1i"]
@@ -47,6 +47,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36pme"]
+shader = ExtResource("2_u1c1i")
+shader_parameter/activated = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhrw1"]
+atlas = ExtResource("2_viiuv")
+region = Rect2(227, 131, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nilr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhrw1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ActivatedDoor" type="StaticBody2D"]
 collision_layer = 7
 script = ExtResource("1_1h37n")
@@ -57,3 +76,12 @@ shape = SubResource("RectangleShape2D_bdl7v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ycjib")
 sprite_frames = SubResource("SpriteFrames_cc6eh")
+
+[node name="Open" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 20
+material = SubResource("ShaderMaterial_36pme")
+position = Vector2(16, 1)
+sprite_frames = SubResource("SpriteFrames_6nilr")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
