@@ -897,15 +897,14 @@ offset_bottom = 40.0
 script = ExtResource("4_dmsl0")
 
 [node name="Button" parent="." instance=ExtResource("5_wq3r6")]
-position = Vector2(552, 88)
+position = Vector2(20, -72)
 
-[node name="ActivatedDoor" parent="." instance=ExtResource("6_xne04")]
+[node name="ActivatedDoor" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_xne04")]
 position = Vector2(96, -96)
+button = NodePath("../Button")
 
 [node name="Box" parent="." instance=ExtResource("7_2u0ga")]
 position = Vector2(-441, -84)
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_5wv63")
 freeze_mode = 1
-
-[connection signal="ButtonPressed" from="Button" to="ActivatedDoor" method="_on_button_button_pressed"]
