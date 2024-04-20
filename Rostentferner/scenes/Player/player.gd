@@ -40,11 +40,12 @@ func _physics_process(delta):
 	movement = velocity
 
 func die():
-	if (get_parent().get_node("Finish").has_method("adddeath")):
+	if (get_parent().get_node("Finish")!=null && get_parent().get_node("Finish").has_method("adddeath")):
 		if (get_parent().get_node("Finish").adddeath()):
 			get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 		else:
 			reset()
+			get_parent().get_node("Laser").reset()
 	get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
 
 func direction_input():
