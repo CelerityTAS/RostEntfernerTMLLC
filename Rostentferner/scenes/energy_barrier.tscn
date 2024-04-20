@@ -6,25 +6,30 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7b7g"]
 size = Vector2(8, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mklu5"]
+atlas = ExtResource("2_rv1ra")
+region = Rect2(425, 66, 32, 129)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_af8xc"]
 atlas = ExtResource("2_rv1ra")
 region = Rect2(330, 67, 32, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_axw1j"]
-atlas = ExtResource("2_rv1ra")
-region = Rect2(429, 67, 32, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qfflc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_af8xc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_axw1j")
+"texture": SubResource("AtlasTexture_mklu5")
 }],
 "loop": true,
-"name": &"default",
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af8xc")
+}],
+"loop": true,
+"name": &"on",
 "speed": 5.0
 }]
 
@@ -38,8 +43,9 @@ collision_layer = 3
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_a7b7g")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_qfflc")
+animation = &"on"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

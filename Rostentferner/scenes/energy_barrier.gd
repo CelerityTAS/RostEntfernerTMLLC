@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready():
 	if active:
-		$"Area2D/AnimatedSprite2D".play("default")
+		$AnimatedSprite2D.play("default")
 	button.ButtonPressed.connect(_on_button_button_pressed)
 
 
@@ -19,6 +19,6 @@ func _on_area_2d_body_entered(body):
 		if (active): get_parent().get_node("player").die()
 		
 func _on_button_button_pressed():
-	$AnimatedSprite2D.play("default")
-	self.collision_layer=8
+	$AnimatedSprite2D.play("off")
+	$Area2D.collision_layer=8
 	active=!active

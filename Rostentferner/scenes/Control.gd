@@ -16,6 +16,6 @@ func _process(delta):
 		$"../Laser".start()
 		paused = false
 	if Input.is_action_just_pressed("ui_accept"):
-		$"../Laser".reset()
+		$"../Laser".reset(false)
 		player.reset()
 		paused = true
