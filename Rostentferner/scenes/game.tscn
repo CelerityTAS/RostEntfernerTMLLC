@@ -1,9 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://bdluft7184888"]
 
+[ext_resource type="PackedScene" uid="uid://ctqhp3ikx03iw" path="res://scenes/hud.tscn" id="1_nwsoo"]
 [ext_resource type="PackedScene" uid="uid://cg1uasgjkiile" path="res://scenes/Player/player.tscn" id="1_rcv1w"]
 [ext_resource type="Texture2D" uid="uid://svcewahfr84a" path="res://assets/tilemap.png" id="2_6mxba"]
 [ext_resource type="Texture2D" uid="uid://6tmopliga04t" path="res://assets/Backgroundtile.png" id="3_ggblp"]
-[ext_resource type="PackedScene" uid="uid://bb0q6wps5jjjp" path="res://scenes/laser.tscn" id="3_mt6td"]
+[ext_resource type="PackedScene" uid="uid://cipcqcmxjoh6b" path="res://scenes/laser.tscn" id="3_mt6td"]
 [ext_resource type="Script" path="res://scenes/Control.gd" id="4_dmsl0"]
 [ext_resource type="Texture2D" uid="uid://cle8m2m372xai" path="res://assets/backgroundtiles.png" id="4_qs2sj"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="5_hb313"]
@@ -998,6 +999,8 @@ shader_parameter/activated = false
 
 [node name="game" type="Node2D"]
 
+[node name="HUD" parent="." instance=ExtResource("1_nwsoo")]
+
 [node name="player" parent="." instance=ExtResource("1_rcv1w")]
 position = Vector2(-560, 200)
 SPEED = 37
@@ -1034,3 +1037,4 @@ position = Vector2(-80, 128)
 button = NodePath("../Button")
 
 [node name="Finish" parent="." instance=ExtResource("9_6mp3t")]
+position = Vector2(552, 152)
