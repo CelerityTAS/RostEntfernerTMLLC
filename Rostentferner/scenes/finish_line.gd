@@ -15,7 +15,7 @@ func resetdeaths():
 	$"../HUD/ColorRect".material.set_shader_parameter("activated",false)
 
 func adddeath():
-	if (deaths==2):
+	if (deaths>=1):
 		$"../HUD/ColorRect".material.set_shader_parameter("activated",true)
 	deaths+=1
 	return deaths>=3
