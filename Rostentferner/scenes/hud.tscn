@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctqhp3ikx03iw"]
+[gd_scene load_steps=10 format=3 uid="uid://ctqhp3ikx03iw"]
 
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_0r8on"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="1_yxclj"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_0k84o"]
 [ext_resource type="FontFile" uid="uid://cmvueg4i7fbe6" path="res://assets/Cave-Story.ttf" id="3_uugfx"]
 [ext_resource type="Script" path="res://scenes/DeathScreen.gd" id="4_srlu6"]
+[ext_resource type="Script" path="res://scenes/ColorRect.gd" id="5_k6ru7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ljvye"]
 
@@ -14,6 +15,7 @@ noise = SubResource("FastNoiseLite_ljvye")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjqoc"]
 shader = ExtResource("1_0r8on")
 shader_parameter/activated = false
+shader_parameter/distancetoplayer = 1.0
 shader_parameter/noise = SubResource("NoiseTexture2D_poh86")
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -67,6 +69,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+script = ExtResource("5_k6ru7")
 
 [node name="DeathScreenBlur" type="ColorRect" parent="."]
 anchors_preset = 15
