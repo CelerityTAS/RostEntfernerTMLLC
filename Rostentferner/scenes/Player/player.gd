@@ -15,8 +15,8 @@ var isAlive = true
 var jump_available = false
 var movement = Vector2()
 
-
 func _physics_process(delta):
+	if !isAlive: return
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
 	if Input.is_action_just_released("jump"):
@@ -41,14 +41,16 @@ func _physics_process(delta):
 	movement = velocity
 
 func die():
+	isAlive=false
 	if (get_parent().get_node("Finish").adddeath()):
-		get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
+		$"../HUD/DeathScreen".show_deathscreen()
 	else:
 		get_parent().get_node("Control").paused=true
 		get_parent().get_node("Laser").reset(false)
 		reset()
 
 func direction_input():
+	if !isAlive:return 0
 	var direction_temp = 0
 	if Input.is_action_pressed("left"):
 		direction_temp -= 1

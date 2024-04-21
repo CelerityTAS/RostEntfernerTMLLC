@@ -3,16 +3,11 @@
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_0r8on"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="1_yxclj"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_0k84o"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ljvye"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_poh86"]
-noise = SubResource("FastNoiseLite_ljvye")
+[ext_resource type="Script" path="res://scenes/DeathScreen.gd" id="4_srlu6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjqoc"]
 shader = ExtResource("1_0r8on")
 shader_parameter/activated = false
-shader_parameter/noise = SubResource("NoiseTexture2D_poh86")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -63,3 +58,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+
+[node name="DeathScreenBlur" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.639216)
+
+[node name="DeathScreen" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -46.5
+offset_right = 77.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_srlu6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeathScreen"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DeathScreen/HBoxContainer"]
+layout_mode = 2
+text = "Escaped Convicts: "
+
+[node name="RunCount" type="Label" parent="DeathScreen/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Restart" type="Button" parent="DeathScreen"]
+layout_mode = 2
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="DeathScreen"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="DeathScreen/Restart" to="DeathScreen" method="_on_restart_pressed"]
+[connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]
