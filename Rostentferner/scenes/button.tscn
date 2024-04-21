@@ -17,6 +17,7 @@ shader_parameter/activated = false
 
 [node name="Button" type="Area2D"]
 material = SubResource("ShaderMaterial_yr6tj")
+collision_layer = 8
 script = ExtResource("1_w77sk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
