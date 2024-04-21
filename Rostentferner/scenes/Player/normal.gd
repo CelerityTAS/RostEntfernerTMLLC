@@ -23,7 +23,6 @@ func state_process(_delta):
 		speedboost+=1
 	if ((player.movement.x>=424 and player.direction_input()<=0) or next_state!=self):
 		speedboost=0
-	print(speedboost)
 		
 	player.movement.x += player.direction_input()*player.SPEED
 	player.movement.x *= player.DRAG
