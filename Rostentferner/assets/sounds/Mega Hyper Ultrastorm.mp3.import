@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7dwimqy10ppq"
+path="res://.godot/imported/Mega Hyper Ultrastorm.mp3-63678289484acd4ad9fa6855c71c8972.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Mega Hyper Ultrastorm.mp3"
+dest_files=["res://.godot/imported/Mega Hyper Ultrastorm.mp3-63678289484acd4ad9fa6855c71c8972.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

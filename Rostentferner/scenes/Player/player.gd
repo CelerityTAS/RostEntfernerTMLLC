@@ -15,6 +15,7 @@ var isAlive = true
 var jump_available = false
 var movement = Vector2()
 
+
 func _physics_process(_delta):
 	if (!isAlive or $AnimatedSprite2D.animation=="die"): return
 	if Input.is_action_just_pressed("jump"):

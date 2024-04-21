@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdluft7184888"]
+[gd_scene load_steps=25 format=3 uid="uid://bdluft7184888"]
 
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_fhqg2"]
 [ext_resource type="PackedScene" uid="uid://ctqhp3ikx03iw" path="res://scenes/hud.tscn" id="1_nwsoo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="8_gbf2c"]
 [ext_resource type="PackedScene" uid="uid://3bc3kt26tah3" path="res://scenes/finish_line.tscn" id="9_6mp3t"]
 [ext_resource type="PackedScene" uid="uid://bk1rl601ddscx" path="res://scenes/energy_barrier.tscn" id="13_lrfte"]
+[ext_resource type="AudioStream" uid="uid://b7dwimqy10ppq" path="res://assets/sounds/Mega Hyper Ultrastorm.mp3" id="14_6rrq6"]
 [ext_resource type="PackedScene" uid="uid://c4v4fvlsn3civ" path="res://scenes/box.tscn" id="15_7ix26"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnqhu"]
@@ -932,6 +933,11 @@ resource_local_to_scene = true
 shader = ExtResource("8_gbf2c")
 shader_parameter/activated = false
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyxfb"]
+resource_local_to_scene = true
+shader = ExtResource("8_gbf2c")
+shader_parameter/activated = false
+
 [node name="game" type="Node2D"]
 material = SubResource("ShaderMaterial_vnqhu")
 
@@ -1022,7 +1028,21 @@ button = NodePath("../Button5")
 
 [node name="Button5" parent="." instance=ExtResource("5_wq3r6")]
 material = SubResource("ShaderMaterial_je8lq")
-position = Vector2(1144, 88)
+position = Vector2(1167, 216)
 
 [node name="DecoFinishLine" parent="." instance=ExtResource("9_6mp3t")]
 position = Vector2(2384, 192)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6rrq6")
+volume_db = -30.0
+autoplay = true
+
+[node name="EnergyBarrier4" parent="." node_paths=PackedStringArray("button") instance=ExtResource("13_lrfte")]
+position = Vector2(2016.5, -40)
+rotation = -1.5708
+button = NodePath("../Button6")
+
+[node name="Button6" parent="." instance=ExtResource("5_wq3r6")]
+material = SubResource("ShaderMaterial_oyxfb")
+position = Vector2(1104, -73)
