@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready():
 	if active:
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.play("on")
 	button.ButtonPressed.connect(_on_button_button_pressed)
 
 
