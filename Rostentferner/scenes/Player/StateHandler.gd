@@ -3,6 +3,7 @@ extends Node
 @onready var current_state = $normal
 @onready var next_state = $normal
 @onready var player = get_parent()
+@onready var animated_sprite_2d = $"../AnimatedSprite2D"
 
 
 func _process(delta):
@@ -23,7 +24,9 @@ func set_animation():
 		player.sprite.flip_h = true
 	if player.movement.x > 0:
 		player.sprite.flip_h = false
-	if current_state.name == "air":
+	if animated_sprite_2d.animation == "die":
+		pass
+	elif current_state.name == "air":
 		player.sprite.play("run")
 	elif current_state.name == "normal":
 		if abs(player.movement.x) > 10:

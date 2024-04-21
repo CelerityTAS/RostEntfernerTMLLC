@@ -37,7 +37,6 @@ func _process(delta):
 	
 	for body in get_overlapping_bodies():
 		if body.has_method("die") and body.isAlive:
-			body.isAlive = false
 			body.die()
 
 

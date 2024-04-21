@@ -41,14 +41,13 @@ func _physics_process(_delta):
 	movement = velocity
 
 func die():
-	$AudioStreamPlayer.play()
-	isAlive=false
-	if (get_parent().get_node("Finish").adddeath()):
-		$"../HUD/DeathScreen".show_deathscreen()
-	else:
-		get_parent().get_node("Control").paused=true
-		get_parent().get_node("Laser").reset(false)
-		reset()
+	if $DeathTime.is_stopped():
+		$DeathTime.start()
+		$AnimatedSprite2D.frame = 0
+		$AnimatedSprite2D.play("die")
+		$AudioStreamPlayer.play()
+		isAlive=false
+
 
 func direction_input():
 	if !isAlive:return 0
@@ -64,6 +63,7 @@ func reset():
 	movement = Vector2(0,0)
 	position = Vector2(-562,197)
 	isAlive = true
+	$AnimatedSprite2D.play("idle")
 
 
 func _on_coyote_timer_timeout():
@@ -72,3 +72,14 @@ func _on_coyote_timer_timeout():
 
 func _on_locked_timer_timeout():
 	jump_available = false
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if $AnimatedSprite2D.animation == "die":
+		$AnimatedSprite2D.play("idle")
+		if (get_parent().get_node("Finish").adddeath()):
+			$"../HUD/DeathScreen".show_deathscreen()
+		else:
+			get_parent().get_node("Control").paused=true
+			get_parent().get_node("Laser").reset(false)
+			reset()
