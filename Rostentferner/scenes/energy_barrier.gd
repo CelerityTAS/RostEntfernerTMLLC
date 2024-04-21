@@ -10,6 +10,7 @@ func _ready():
 
 
 @export var active = true
+
 func _on_area_2d_body_entered(body):
 	if (body.name=="player"):
 		if (active): get_parent().get_node("player").die()

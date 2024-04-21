@@ -7,19 +7,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7b7g"]
 size = Vector2(8, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mklu5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyyy1"]
 atlas = ExtResource("2_rv1ra")
-region = Rect2(425, 66, 32, 129)
+region = Rect2(400, 66, 22, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_af8xc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_loes3"]
 atlas = ExtResource("2_rv1ra")
-region = Rect2(330, 67, 32, 128)
+region = Rect2(325, 66, 22, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qfflc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mklu5")
+"texture": SubResource("AtlasTexture_jyyy1")
 }],
 "loop": true,
 "name": &"off",
@@ -27,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_af8xc")
+"texture": SubResource("AtlasTexture_loes3")
 }],
 "loop": true,
 "name": &"on",
@@ -47,7 +47,7 @@ shape = SubResource("RectangleShape2D_a7b7g")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_qfflc")
-animation = &"off"
+animation = &"on"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4sb4c")
