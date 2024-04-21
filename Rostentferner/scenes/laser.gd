@@ -54,7 +54,7 @@ func _on_replay_timer_timeout():
 		replayStep += 1
 		if replayStep-delay>=0:
 			if replayStep-delay<lastTrackedPos.size():
-				nextMove = lastTrackedPos[replayStep-delay]-position.x-32
+				nextMove = lastTrackedPos[replayStep-delay]-position.x
 			else :
 				nextMove = baseSpeed
 		
