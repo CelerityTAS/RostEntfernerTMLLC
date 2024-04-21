@@ -98,7 +98,9 @@ alpha_curve = SubResource("CurveTexture_jlduc")
 [sub_resource type="Environment" id="Environment_ievgg"]
 background_mode = 3
 glow_enabled = true
+glow_intensity = 8.0
 glow_blend_mode = 0
+glow_hdr_threshold = 0.08
 
 [node name="Laser" type="Area2D"]
 collision_layer = 0
@@ -122,9 +124,10 @@ sprite_frames = SubResource("SpriteFrames_qdl3m")
 frame_progress = 0.543474
 
 [node name="Line2D" type="Line2D" parent="."]
-visible = false
+modulate = Color(2, 2, 2, 1)
 points = PackedVector2Array(0, -240, 0, 240)
 width = 5.0
+default_color = Color(1, 0.325632, 0.344404, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, -240)
