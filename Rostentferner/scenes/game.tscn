@@ -912,7 +912,7 @@ material = SubResource("ShaderMaterial_j82l2")
 position = Vector2(1104, -73)
 
 [node name="EnergyBarrier2" parent="." node_paths=PackedStringArray("button") instance=ExtResource("13_lrfte")]
-position = Vector2(1164, 32)
+position = Vector2(1168, 32)
 button = NodePath("../Button3")
 
 [node name="Button3" parent="." instance=ExtResource("5_wq3r6")]
@@ -939,4 +939,4 @@ button = NodePath("../Button5")
 
 [node name="Button5" parent="." instance=ExtResource("5_wq3r6")]
 material = SubResource("ShaderMaterial_je8lq")
-position = Vector2(1136, 88)
+position = Vector2(1144, 88)
