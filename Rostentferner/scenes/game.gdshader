@@ -2,6 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D noise;
 uniform bool activated = false;
+uniform float distancetoplayer = 1.0f;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -14,7 +15,7 @@ void fragment() {
 		vec4 tempc=vec4(texture(noise,UV).x,0,0,0.5);
 		vec2 center = vec2(0.5,0.5);
 		float dist = distance(UV,center);
-		COLOR = pow(dist,1)*tempc;
+		COLOR = pow(dist,1.0f-distancetoplayer/2.0f)*tempc;
 	}
 }
 

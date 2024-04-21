@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdluft7184888"]
+[gd_scene load_steps=29 format=3 uid="uid://bdluft7184888"]
 
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_fhqg2"]
 [ext_resource type="PackedScene" uid="uid://ctqhp3ikx03iw" path="res://scenes/hud.tscn" id="1_nwsoo"]
@@ -14,10 +14,12 @@
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="8_gbf2c"]
 [ext_resource type="PackedScene" uid="uid://3bc3kt26tah3" path="res://scenes/finish_line.tscn" id="9_6mp3t"]
 [ext_resource type="PackedScene" uid="uid://bk1rl601ddscx" path="res://scenes/energy_barrier.tscn" id="13_lrfte"]
+[ext_resource type="PackedScene" uid="uid://c4v4fvlsn3civ" path="res://scenes/box.tscn" id="15_7ix26"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnqhu"]
 shader = ExtResource("1_fhqg2")
 shader_parameter/activated = false
+shader_parameter/distancetoplayer = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
@@ -1849,7 +1851,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_328h1")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_or6ps"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vi5vk"]
 resource_local_to_scene = true
 shader = ExtResource("8_gbf2c")
 shader_parameter/activated = false
@@ -1858,17 +1860,17 @@ shader_parameter/activated = false
 shader = ExtResource("8_gbf2c")
 shader_parameter/activated = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ns28"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j82l2"]
 resource_local_to_scene = true
 shader = ExtResource("8_gbf2c")
 shader_parameter/activated = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_njt2i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4yoo"]
 resource_local_to_scene = true
 shader = ExtResource("8_gbf2c")
 shader_parameter/activated = false
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3fxmu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mux8c"]
 resource_local_to_scene = true
 shader = ExtResource("8_gbf2c")
 shader_parameter/activated = false
@@ -1914,7 +1916,7 @@ offset_bottom = 40.0
 script = ExtResource("4_dmsl0")
 
 [node name="Button" parent="." instance=ExtResource("5_wq3r6")]
-material = SubResource("ShaderMaterial_or6ps")
+material = SubResource("ShaderMaterial_vi5vk")
 position = Vector2(-120, 56)
 
 [node name="ActivatedDoor" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_xne04")]
@@ -1930,7 +1932,7 @@ position = Vector2(1100, 32)
 button = NodePath("../Button2")
 
 [node name="Button2" parent="." instance=ExtResource("5_wq3r6")]
-material = SubResource("ShaderMaterial_7ns28")
+material = SubResource("ShaderMaterial_j82l2")
 position = Vector2(1104, -73)
 
 [node name="EnergyBarrier2" parent="." node_paths=PackedStringArray("button") instance=ExtResource("13_lrfte")]
@@ -1938,13 +1940,18 @@ position = Vector2(1164, 32)
 button = NodePath("../Button3")
 
 [node name="Button3" parent="." instance=ExtResource("5_wq3r6")]
-material = SubResource("ShaderMaterial_njt2i")
+material = SubResource("ShaderMaterial_y4yoo")
 position = Vector2(1167, 216)
 
 [node name="ActivatedDoor2" parent="." node_paths=PackedStringArray("button") instance=ExtResource("6_xne04")]
 position = Vector2(1472, 192)
 button = NodePath("../Button4")
 
+[node name="MovableBox" parent="." instance=ExtResource("15_7ix26")]
+position = Vector2(561, 140)
+mass = 0.5
+metadata/box = false
+
 [node name="Button4" parent="." instance=ExtResource("5_wq3r6")]
-material = SubResource("ShaderMaterial_3fxmu")
+material = SubResource("ShaderMaterial_mux8c")
 position = Vector2(1880, -72)
