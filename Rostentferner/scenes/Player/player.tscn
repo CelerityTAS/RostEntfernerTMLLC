@@ -130,7 +130,7 @@ shape = SubResource("RectangleShape2D_l1dds")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mnb03")
 animation = &"run"
-frame_progress = 0.791518
+frame_progress = 0.307441
 
 [node name="StateHandler" type="Node" parent="."]
 script = ExtResource("3_30vb3")
