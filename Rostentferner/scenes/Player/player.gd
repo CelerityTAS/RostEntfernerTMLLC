@@ -30,7 +30,8 @@ func _physics_process(_delta):
 		jump_available = false
 		$JumpBufferTimer.stop()
 		
-	
+	if !visible:
+		movement.x=0
 	set_velocity(movement)
 	set_up_direction(UP_VECTOR)
 	move_and_slide()
@@ -83,7 +84,6 @@ func _on_animated_sprite_2d_animation_finished():
 			$"../HUD/DeathScreen".show_deathscreen()
 			visible=false
 		else:
-			visible=false
 			$AnimatedSprite2D.play("idle")
 			get_parent().get_node("Control").paused=true
 			get_parent().get_node("Laser").reset(false)

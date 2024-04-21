@@ -26,22 +26,18 @@ func adddeath():
 
 func _on_area_2d_body_entered(body):
 	if (body.name=="player"):
+		get_parent().get_node("Control").paused=true
 		$"../Laser".reset(true)
 		$"../player".reset()
-		$"../player".isAlive = false
 		$"../player".visible=false
 		$InvisTimer.start()
-		$Timer.start()
 		times_completed+=1
 	
 		$"../HUD/RunCounter/RunCount".text=str(times_completed)
 		pass # Replace with function body.
 
 
-func _on_timer_timeout():
-	$"../player".isAlive=true
-	$"../player/AnimatedSprite2D".play("idle")
-	get_parent().get_node("Control").paused=true
+	
 
 
 func _on_death_time_timeout():
@@ -50,4 +46,5 @@ func _on_death_time_timeout():
 
 func _on_invis_timer_timeout():
 	$"../player".visible= true
-	$"../player/AnimatedSprite2D".play("idle")
+	#$"../player/AnimatedSprite2D".play("idle")
+
