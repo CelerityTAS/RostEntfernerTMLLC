@@ -13,10 +13,6 @@ func _ready():
 	$AnimatedSprite2D.material.set_shader_parameter("activated",false)
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_button_button_pressed():
 	$AnimatedSprite2D.play("default")
 	$AnimatedSprite2D.material.set_shader_parameter("activated",true)

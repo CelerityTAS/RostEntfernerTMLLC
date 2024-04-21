@@ -9,10 +9,6 @@ func _ready():
 	button.ButtonPressed.connect(_on_button_button_pressed)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 @export var active = true
 func _on_area_2d_body_entered(body):
 	if (body.name=="player"):
