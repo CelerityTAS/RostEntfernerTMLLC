@@ -28,13 +28,14 @@ func _process(delta):
 	pass
 
 func _on_area_2d_body_entered(body):
-	$"../Laser".reset(true)
-	$"../player".visible=false
-	$Timer.start()
-	times_completed+=1
+	if (body.name=="player"):
+		$"../Laser".reset(true)
+		$"../player".visible=false
+		$Timer.start()
+		times_completed+=1
 	
-	$"../HUD/RunCounter/RunCount".text=str(times_completed)
-	pass # Replace with function body.
+		$"../HUD/RunCounter/RunCount".text=str(times_completed)
+		pass # Replace with function body.
 
 
 func _on_timer_timeout():
