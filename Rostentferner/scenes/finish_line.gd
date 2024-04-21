@@ -40,6 +40,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_timer_timeout():
 	$"../player".isAlive=true
+	$"../player/AnimatedSprite2D".play("idle")
 	get_parent().get_node("Control").paused=true
 
 
@@ -49,3 +50,4 @@ func _on_death_time_timeout():
 
 func _on_invis_timer_timeout():
 	$"../player".visible= true
+	$"../player/AnimatedSprite2D".play("idle")

@@ -95,6 +95,7 @@ script = ExtResource("4_srlu6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DeathScreen"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="DeathScreen/HBoxContainer"]
 layout_mode = 2
