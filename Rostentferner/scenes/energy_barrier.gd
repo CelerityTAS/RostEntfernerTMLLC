@@ -18,4 +18,5 @@ func _on_area_2d_body_entered(body):
 func _on_button_button_pressed():
 	$AnimatedSprite2D.play("off")
 	$Area2D.collision_layer=8
+	$AudioStreamPlayer2D.stop()
 	active=!active
