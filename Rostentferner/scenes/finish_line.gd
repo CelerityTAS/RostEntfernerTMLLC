@@ -27,7 +27,8 @@ func adddeath():
 func _on_area_2d_body_entered(body):
 	if (body.name=="player"):
 		$"../Laser".reset(true)
-		$"../player".visible=false
+		$"../player".reset()
+		$"../player".isAlive = false
 		$Timer.start()
 		times_completed+=1
 	
@@ -36,8 +37,7 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_timer_timeout():
-	$"../player".visible=true
-	$"../player".reset()
+	$"../player".isAlive=true
 	get_parent().get_node("Control").paused=true
 
 

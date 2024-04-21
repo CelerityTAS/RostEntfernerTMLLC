@@ -865,6 +865,7 @@ DRAG = 0.92
 position = Vector2(72, -101)
 limit_top = -224
 limit_bottom = 256
+position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.5
