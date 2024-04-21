@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Rostentferner"
+config/name="Photon Sprint"
 run/main_scene="res://scenes/menus/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.png"
 
 [display]
 
