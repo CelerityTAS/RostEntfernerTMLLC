@@ -5,10 +5,11 @@ extends HBoxContainer
 func _ready():
 	pass # Replace with function body.
 
+var deaths = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var deaths = $"../../Finish".deaths
+	deaths = $"../../Finish".deaths
 	$Heart2.visible = false
 	$Heart3.visible = false
 	if (deaths<=1):

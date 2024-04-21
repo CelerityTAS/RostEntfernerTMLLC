@@ -17,6 +17,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnqhu"]
 shader = ExtResource("1_fhqg2")
+shader_parameter/activated = false
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1rrkh"]
 texture = ExtResource("2_6mxba")
