@@ -1303,6 +1303,7 @@ position = Vector2(72, -101)
 limit_top = -224
 limit_bottom = 256
 drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Enviroment" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_36nhb")
