@@ -21,6 +21,7 @@ region_enabled = true
 region_rect = Rect2(260, 66, 32, 64)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="DeathTime" type="Timer" parent="."]
