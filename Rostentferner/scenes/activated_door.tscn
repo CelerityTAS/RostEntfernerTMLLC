@@ -8,7 +8,6 @@
 size = Vector2(32, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycjib"]
-resource_local_to_scene = true
 shader = ExtResource("2_u1c1i")
 shader_parameter/activated = false
 
@@ -49,7 +48,6 @@ animations = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_36pme"]
-resource_local_to_scene = true
 shader = ExtResource("2_u1c1i")
 shader_parameter/activated = false
 

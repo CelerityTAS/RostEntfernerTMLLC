@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctqhp3ikx03iw"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqhp3ikx03iw"]
 
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_0r8on"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="1_yxclj"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_0k84o"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ljvye"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_poh86"]
+noise = SubResource("FastNoiseLite_ljvye")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjqoc"]
 shader = ExtResource("1_0r8on")
+shader_parameter/activated = false
+shader_parameter/noise = SubResource("NoiseTexture2D_poh86")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

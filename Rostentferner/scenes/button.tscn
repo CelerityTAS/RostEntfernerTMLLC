@@ -12,7 +12,6 @@ shader_parameter/activated = false
 size = Vector2(48, 48)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgv4n"]
-resource_local_to_scene = true
 shader = ExtResource("2_qdoow")
 shader_parameter/activated = false
 
