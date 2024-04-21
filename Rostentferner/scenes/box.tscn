@@ -9,7 +9,7 @@ size = Vector2(32, 32)
 
 [node name="MovableBox" type="RigidBody2D"]
 collision_layer = 3
-mass = 0.01
+mass = 0.33
 physics_material_override = SubResource("PhysicsMaterial_6iyel")
 metadata/box = true
 

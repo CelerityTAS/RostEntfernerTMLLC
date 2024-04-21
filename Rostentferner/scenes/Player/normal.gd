@@ -4,6 +4,8 @@ extends Node
 var next_state = null
 @onready var coyote_timer = $"../../CoyoteTimer"
 
+var speedboost = 0
+
 func state_process(_delta):
 	next_state = self
 	
@@ -17,8 +19,15 @@ func state_process(_delta):
 		coyote_timer.stop()
 		player.jump_available = true
 		
+	if (player.movement.x>=424 and speedboost < 100):
+		speedboost+=1
+	if ((player.movement.x>=424 and player.direction_input()<=0) or next_state!=self):
+		speedboost=0
+	print(speedboost)
+		
 	player.movement.x += player.direction_input()*player.SPEED
 	player.movement.x *= player.DRAG
+	player.movement.x += speedboost
 	
 	return next_state
 
