@@ -22,3 +22,7 @@ func _on_restart_pressed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()
+
+
+func _on_return_to_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/menus/mainmenu.tscn")
