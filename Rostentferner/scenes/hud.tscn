@@ -102,9 +102,14 @@ text = "0"
 layout_mode = 2
 text = "Restart"
 
+[node name="Return To Menu" type="Button" parent="DeathScreen"]
+layout_mode = 2
+text = "Main Menu"
+
 [node name="ExitButton" type="Button" parent="DeathScreen"]
 layout_mode = 2
 text = "Exit"
 
 [connection signal="pressed" from="DeathScreen/Restart" to="DeathScreen" method="_on_restart_pressed"]
+[connection signal="pressed" from="DeathScreen/Return To Menu" to="DeathScreen" method="_on_return_to_menu_pressed"]
 [connection signal="pressed" from="DeathScreen/ExitButton" to="DeathScreen" method="_on_exit_button_pressed"]
