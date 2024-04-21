@@ -5,6 +5,7 @@
 [ext_resource type="Shader" path="res://scenes/redgreenshader.gdshader" id="2_qdoow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yr6tj"]
+resource_local_to_scene = true
 shader = ExtResource("2_qdoow")
 shader_parameter/activated = false
 
@@ -12,6 +13,7 @@ shader_parameter/activated = false
 size = Vector2(48, 48)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jgv4n"]
+resource_local_to_scene = true
 shader = ExtResource("2_qdoow")
 shader_parameter/activated = false
 

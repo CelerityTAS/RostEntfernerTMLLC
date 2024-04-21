@@ -98,5 +98,8 @@ collide_with_areas = true
 wait_time = 0.2
 one_shot = true
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="LockedTimer" to="." method="_on_locked_timer_timeout"]
