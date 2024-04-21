@@ -29,6 +29,8 @@ func _on_area_2d_body_entered(body):
 		$"../Laser".reset(true)
 		$"../player".reset()
 		$"../player".isAlive = false
+		$"../player".visible=false
+		$InvisTimer.start()
 		$Timer.start()
 		times_completed+=1
 	
@@ -43,3 +45,7 @@ func _on_timer_timeout():
 
 func _on_death_time_timeout():
 	pass # Replace with function body.
+
+
+func _on_invis_timer_timeout():
+	$"../player".visible= true

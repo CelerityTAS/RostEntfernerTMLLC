@@ -16,7 +16,7 @@ var jump_available = false
 var movement = Vector2()
 
 func _physics_process(_delta):
-	if !isAlive: return
+	if (!isAlive or $AnimatedSprite2D.animation=="die"): return
 	if Input.is_action_just_pressed("jump"):
 		$JumpBufferTimer.start()
 	if Input.is_action_just_released("jump"):
@@ -63,6 +63,7 @@ func reset():
 	movement = Vector2(0,0)
 	position = Vector2(-562,197)
 	isAlive = true
+	visible=true
 	$AnimatedSprite2D.play("idle")
 
 
@@ -79,7 +80,9 @@ func _on_animated_sprite_2d_animation_finished():
 		$AnimatedSprite2D.play("idle")
 		if (get_parent().get_node("Finish").adddeath()):
 			$"../HUD/DeathScreen".show_deathscreen()
+			visible=false
 		else:
+			visible=false
 			get_parent().get_node("Control").paused=true
 			get_parent().get_node("Laser").reset(false)
 			reset()
