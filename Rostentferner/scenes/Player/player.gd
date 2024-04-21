@@ -41,6 +41,7 @@ func _physics_process(delta):
 	movement = velocity
 
 func die():
+	$AudioStreamPlayer.play()
 	isAlive=false
 	if (get_parent().get_node("Finish").adddeath()):
 		$"../HUD/DeathScreen".show_deathscreen()

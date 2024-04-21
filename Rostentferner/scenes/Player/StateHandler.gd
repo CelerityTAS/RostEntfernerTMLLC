@@ -19,16 +19,21 @@ func play_transition(transition_name):
 	player.sprite.play(transition_name)
 
 func set_animation():
-	if get_parent().movement.x < 0:
-		get_parent().sprite.flip_h = true
-		
+	if player.movement.x < 0:
+		player.sprite.flip_h = true
+	if player.movement.x > 0:
+		player.sprite.flip_h = false
+	if current_state.name == "air":
+		player.sprite.play("run")
+	elif current_state.name == "normal":
+		if abs(player.movement.x) > 10:
+			player.sprite.play("run")
+		else:
+			player.sprite.play("idle")
+	elif current_state.name == "wall" or current_state.name == "hanging":
+		player.sprite.play("hanging")
+		if $"../RightWallRayCast".is_colliding():
+			player.sprite.flip_h = true
+		if $"../LeftWallRayCast".is_colliding():
+			player.sprite.flip_h = false
 
-	if get_parent().movement.x > 0:
-		get_parent().sprite.flip_h = false
-	#if current_state.name == "normal":
-		#get_parent().sprite.play("walk")
-	#elif current_state.name == "air":
-		#get_parent().sprite.play("air")
-	#
-	#elif current_state.name == "wall":
-		#get_parent().sprite.play("climb")

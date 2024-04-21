@@ -13,7 +13,7 @@ func state_process(_delta):
 	if player.is_on_floor():
 		next_state = get_parent().get_node("normal")
 		
-	if left_wall_ray_cast.is_colliding() or right_wall_ray_cast.is_colliding():
+	if left_wall_ray_cast.is_colliding() and !(player.movement.x >0) or right_wall_ray_cast.is_colliding()and !(player.movement.x <0):
 		next_state=get_parent().get_node("wall")
 		
 	if $"../../LockedTimer".is_stopped():
