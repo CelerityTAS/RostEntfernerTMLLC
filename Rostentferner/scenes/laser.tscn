@@ -107,7 +107,6 @@ glow_hdr_threshold = 0.08
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vsiw5")
-DELAY = 8
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -151,4 +150,9 @@ autoplay = true
 max_distance = 1000.0
 attenuation = 4.92458
 
+[node name="replayTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="replayTimer" to="." method="_on_replay_timer_timeout"]
