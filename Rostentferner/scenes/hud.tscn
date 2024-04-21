@@ -32,13 +32,13 @@ region_enabled = true
 region_rect = Rect2(326.661, 2.41501, 18.8647, 17.9665)
 
 [node name="Heart2" type="Sprite2D" parent="Hearts"]
-position = Vector2(45, 16)
+position = Vector2(56, 16)
 texture = ExtResource("2_0k84o")
 region_enabled = true
 region_rect = Rect2(326.607, 2.41345, 18.7365, 17.8381)
 
 [node name="Heart3" type="Sprite2D" parent="Hearts"]
-position = Vector2(66, 16)
+position = Vector2(88, 16)
 texture = ExtResource("2_0k84o")
 region_enabled = true
 region_rect = Rect2(326.897, 2.68551, 18.3515, 17.4531)

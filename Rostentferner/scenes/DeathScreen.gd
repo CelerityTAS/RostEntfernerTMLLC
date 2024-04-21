@@ -7,10 +7,6 @@ func _ready():
 	$"../DeathScreenBlur".visible=false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func show_deathscreen():
 	visible=true
 	$"../DeathScreenBlur".visible=true

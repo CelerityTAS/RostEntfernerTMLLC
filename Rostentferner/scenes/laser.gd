@@ -46,8 +46,6 @@ func _on_timer_timeout():
 		trackedPos.append(player.position.x)
 		step += 1
 
-	
-
 
 func _on_replay_timer_timeout():
 	if step != -1:
