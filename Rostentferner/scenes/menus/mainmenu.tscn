@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b12b22oq0xqj0"]
+[gd_scene load_steps=8 format=3 uid="uid://b12b22oq0xqj0"]
 
 [ext_resource type="Script" path="res://scenes/mainmenu.gd" id="1_mktu7"]
 [ext_resource type="FontFile" uid="uid://cmvueg4i7fbe6" path="res://assets/Cave-Story.ttf" id="2_tun06"]
+[ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="3_3l7vg"]
+[ext_resource type="Texture2D" uid="uid://6qjkvtxr8pip" path="res://assets/MainMenuBG.png" id="3_7blkr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pp0g3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66nt3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ciui4"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_mktu7")
@@ -12,25 +20,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -67.0
+offset_left = -70.0
 offset_top = -69.5
-offset_right = 67.0
+offset_right = 70.0
 offset_bottom = 69.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="gametitle" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("2_tun06")
-theme_override_font_sizes/font_size = 30
-text = "Game Name"
-horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer"]
+position = Vector2(64, -35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3l7vg")
+region_enabled = true
+region_rect = Rect2(-0.217171, 194.418, 402.457, 115.664)
 
 [node name="start" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 focus_neighbor_top = NodePath("../exit")
 focus_neighbor_bottom = NodePath("../options")
@@ -38,9 +47,18 @@ focus_next = NodePath("../options")
 focus_previous = NodePath("../exit")
 theme_override_fonts/font = ExtResource("2_tun06")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pp0g3")
 text = "Start"
 
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/start"]
+z_index = -1
+texture = ExtResource("3_3l7vg")
+centered = false
+region_enabled = true
+region_rect = Rect2(402.342, 262.064, 139.908, 33.0217)
+
 [node name="options" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 focus_neighbor_top = NodePath("../start")
 focus_neighbor_bottom = NodePath("../exit")
@@ -48,9 +66,18 @@ focus_next = NodePath("../exit")
 focus_previous = NodePath("../start")
 theme_override_fonts/font = ExtResource("2_tun06")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_66nt3")
 text = "Optionen"
 
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/options"]
+z_index = -1
+texture = ExtResource("3_3l7vg")
+centered = false
+region_enabled = true
+region_rect = Rect2(402.342, 262.064, 139.908, 33.0217)
+
 [node name="exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 focus_neighbor_top = NodePath("../options")
 focus_neighbor_bottom = NodePath("../start")
@@ -58,7 +85,20 @@ focus_next = NodePath("../start")
 focus_previous = NodePath("../options")
 theme_override_fonts/font = ExtResource("2_tun06")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ciui4")
 text = "Exit"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/exit"]
+z_index = -1
+texture = ExtResource("3_3l7vg")
+centered = false
+region_enabled = true
+region_rect = Rect2(402.342, 262.064, 139.908, 33.0217)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(431, 240)
+texture = ExtResource("3_7blkr")
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
