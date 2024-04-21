@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctqhp3ikx03iw"]
+[gd_scene load_steps=9 format=3 uid="uid://ctqhp3ikx03iw"]
 
 [ext_resource type="Shader" path="res://scenes/game.gdshader" id="1_0r8on"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="1_yxclj"]
 [ext_resource type="Texture2D" uid="uid://cswvml6t4bqvo" path="res://assets/interactive.png" id="2_0k84o"]
+[ext_resource type="FontFile" uid="uid://cmvueg4i7fbe6" path="res://assets/Cave-Story.ttf" id="3_uugfx"]
 [ext_resource type="Script" path="res://scenes/DeathScreen.gd" id="4_srlu6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ljvye"]
@@ -50,10 +51,12 @@ grow_horizontal = 0
 
 [node name="Label" type="Label" parent="RunCounter"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "Runs: "
 
 [node name="RunCount" type="Label" parent="RunCounter"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "0"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -92,22 +95,27 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="DeathScreen/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "Escaped Convicts: "
 
 [node name="RunCount" type="Label" parent="DeathScreen/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "0"
 
 [node name="Restart" type="Button" parent="DeathScreen"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "Restart"
 
 [node name="Return To Menu" type="Button" parent="DeathScreen"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "Main Menu"
 
 [node name="ExitButton" type="Button" parent="DeathScreen"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uugfx")
 text = "Exit"
 
 [connection signal="pressed" from="DeathScreen/Restart" to="DeathScreen" method="_on_restart_pressed"]
