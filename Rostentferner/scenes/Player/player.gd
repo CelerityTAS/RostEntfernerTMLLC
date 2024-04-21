@@ -63,6 +63,7 @@ func reset():
 	movement = Vector2(0,0)
 	position = Vector2(-562,197)
 	isAlive = true
+	visible=true
 	$AnimatedSprite2D.play("idle")
 
 
@@ -79,7 +80,9 @@ func _on_animated_sprite_2d_animation_finished():
 		$AnimatedSprite2D.play("idle")
 		if (get_parent().get_node("Finish").adddeath()):
 			$"../HUD/DeathScreen".show_deathscreen()
+			visible=false
 		else:
+			visible=false
 			get_parent().get_node("Control").paused=true
 			get_parent().get_node("Laser").reset(false)
 			reset()
