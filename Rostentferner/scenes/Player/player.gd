@@ -47,6 +47,7 @@ func die():
 		$AnimatedSprite2D.play("die")
 		$AudioStreamPlayer.play()
 		isAlive=false
+		$StateHandler/normal.speedboost=0
 
 
 func direction_input():
@@ -77,12 +78,12 @@ func _on_locked_timer_timeout():
 
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "die":
-		$AnimatedSprite2D.play("idle")
 		if (get_parent().get_node("Finish").adddeath()):
 			$"../HUD/DeathScreen".show_deathscreen()
 			visible=false
 		else:
 			visible=false
+			$AnimatedSprite2D.play("idle")
 			get_parent().get_node("Control").paused=true
 			get_parent().get_node("Laser").reset(false)
 			reset()
